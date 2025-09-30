@@ -1,0 +1,107 @@
+
+{
+    "starters": [
+        { 
+            "name": "Medu Vada", 
+            "description": "Crispy, savory lentil doughnuts, soft on the inside, served with coconut chutney and sambar.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "medu vada"
+        },
+        { 
+            "name": "Masala Dosa", 
+            "description": "A thin, crispy crepe made from fermented rice and lentils, filled with a savory potato masala.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "masala dosa"
+        },
+        { 
+            "name": "Idli with Sambar", 
+            "description": "Steamed savory rice cakes, soft and fluffy, served with a flavorful lentil-based vegetable stew.", 
+            "imageUrl": "https://images.unsplash.com/photo-1643282329923-f08a38343169?w=800&q=80",
+            "imageHint": "idli sambar"
+        }
+    ],
+    "mainCourses": [
+        { 
+            "name": "Chettinad Chicken Curry", 
+            "description": "A fiery, aromatic curry from the Chettinad region, made with a blend of roasted spices and tender chicken.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "chicken curry"
+        },
+        { 
+            "name": "Mutton Biryani", 
+            "description": "Fragrant basmati rice slow-cooked with succulent mutton pieces and a rich blend of traditional spices.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "mutton biryani"
+        },
+        { 
+            "name": "Meen Kuzhambu", 
+            "description": "A tangy and spicy fish curry made with tamarind, coconut, and freshly ground spices.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "fish curry"
+        },
+        { 
+            "name": "Sambar Sadam", 
+            "description": "A comforting one-pot meal of rice and lentils cooked with mixed vegetables and aromatic sambar powder.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "sambar rice"
+        }
+    ],
+    "desserts": [
+        { 
+            "name": "Semiya Payasam", 
+            "description": "A creamy vermicelli pudding made with milk, sweetened with sugar, and flavored with cardamom and nuts.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "payasam"
+        },
+        { 
+            "name": "Rava Kesari", 
+            "description": "A sweet South Indian dessert made from semolina, ghee, sugar, and saffron, garnished with cashews.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "rava kesari"
+        },
+        { 
+            "name": "Mysore Pak", 
+            "description": "A rich, melt-in-your-mouth sweet made from gram flour, generous amounts of ghee, and sugar.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "mysore pak"
+        }
+    ],
+    "veg": [
+        { 
+            "name": "Vegetable Biryani", 
+            "description": "Fragrant basmati rice cooked with mixed vegetables, aromatic spices, and saffron.", 
+            "imageUrl": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80",
+            "imageHint": "vegetable biryani"
+        },
+        { 
+            "name": "Paneer Butter Masala", 
+            "description": "Soft cottage cheese cubes in a rich, creamy tomato-based gravy with aromatic spices.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "paneer butter masala"
+        },
+        { 
+            "name": "Dal Makhani", 
+            "description": "Creamy black lentils slow-cooked with butter, cream, and aromatic spices.", 
+            "imageUrl": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80",
+            "imageHint": "dal makhani"
+        },
+        { 
+            "name": "Aloo Gobi", 
+            "description": "A classic North Indian dish of potatoes and cauliflower cooked with onions, tomatoes, and spices.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "aloo gobi"
+        },
+        { 
+            "name": "Chana Masala", 
+            "description": "Spiced chickpeas cooked in a tangy tomato-based gravy with aromatic spices.", 
+            "imageUrl": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80",
+            "imageHint": "chana masala"
+        },
+        { 
+            "name": "Vegetable Curry", 
+            "description": "Mixed vegetables cooked in a flavorful coconut-based curry with South Indian spices.", 
+            "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
+            "imageHint": "vegetable curry"
+        }
+    ]
+}

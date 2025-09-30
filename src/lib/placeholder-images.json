@@ -1,0 +1,146 @@
+
+{
+    "placeholderImages": [
+      {
+        "id": "wedding-1",
+        "description": "Luxury Wedding Reception",
+        "imageUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+        "imageHint": "luxury wedding reception",
+        "category": "Weddings"
+      },
+      {
+        "id": "wedding-2",
+        "description": "Elegant Wedding Ceremony",
+        "imageUrl": "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=80",
+        "imageHint": "wedding ceremony",
+        "category": "Weddings"
+      },
+      {
+        "id": "corporate-1",
+        "description": "Professional Conference Setup",
+        "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80",
+        "imageHint": "corporate conference",
+        "category": "Corporate Events"
+      },
+      {
+        "id": "corporate-2",
+        "description": "Business Networking Event",
+        "imageUrl": "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800&q=80",
+        "imageHint": "business networking",
+        "category": "Corporate Events"
+      },
+      {
+        "id": "corporate-3",
+        "description": "Product Launch Event",
+        "imageUrl": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80",
+        "imageHint": "product launch",
+        "category": "Corporate Events"
+      },
+      {
+        "id": "party-1",
+        "description": "Luxury Birthday Celebration",
+        "imageUrl": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&q=80",
+        "imageHint": "birthday party",
+        "category": "Private Parties"
+      },
+      {
+        "id": "party-2",
+        "description": "Anniversary Celebration",
+        "imageUrl": "https://images.unsplash.com/photo-1485801602374-14f7620a2333?w=800&q=80",
+        "imageHint": "anniversary celebration",
+        "category": "Private Parties"
+      },
+      {
+        "id": "party-3",
+        "description": "Graduation Party",
+        "imageUrl": "https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?w=800&q=80",
+        "imageHint": "graduation party",
+        "category": "Private Parties"
+      },
+      {
+        "id": "gala-1",
+        "description": "Charity Gala Dinner",
+        "imageUrl": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+        "imageHint": "gala dinner",
+        "category": "Galas & Fundraisers"
+      },
+      {
+        "id": "gala-2",
+        "description": "Awards Ceremony",
+        "imageUrl": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80",
+        "imageHint": "awards ceremony",
+        "category": "Galas & Fundraisers"
+      },
+      {
+        "id": "concert-1",
+        "description": "Live Music Concert",
+        "imageUrl": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80",
+        "imageHint": "live concert",
+        "category": "Entertainment"
+      },
+      {
+        "id": "concert-2",
+        "description": "Theater Performance",
+        "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+        "imageHint": "theater performance",
+        "category": "Entertainment"
+      },
+      {
+        "id": "team-1",
+        "description": "Event Planning Team",
+        "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
+        "imageHint": "professional team",
+        "category": "Team"
+      },
+      {
+        "id": "team-2",
+        "description": "Event Coordinator",
+        "imageUrl": "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=400&q=80",
+        "imageHint": "event coordinator",
+        "category": "Team"
+      },
+      {
+        "id": "team-3",
+        "description": "Wedding Planner",
+        "imageUrl": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80",
+        "imageHint": "wedding planner",
+        "category": "Team"
+      },
+      {
+        "id": "venue-1",
+        "description": "Luxury Event Venue",
+        "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+        "imageHint": "luxury venue",
+        "category": "Venues"
+      },
+      {
+        "id": "venue-2",
+        "description": "Outdoor Event Space",
+        "imageUrl": "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+        "imageHint": "outdoor venue",
+        "category": "Venues"
+      },
+      {
+        "id": "slideshow-1",
+        "description": "Elegant Event Setup",
+        "imageUrl": "https://images.unsplash.com/photo-1519167758481-83f142b8fb9c?w=1200&q=80",
+        "imageHint": "elegant event",
+        "category": "hero"
+      },
+      {
+        "id": "slideshow-2",
+        "description": "Professional Conference",
+        "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1200&q=80",
+        "imageHint": "professional conference",
+        "category": "hero"
+      },
+      {
+        "id": "slideshow-3",
+        "description": "Luxury Wedding Reception",
+        "imageUrl": "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200&q=80",
+        "imageHint": "luxury wedding",
+        "category": "hero"
+      }
+    ]
+  }
+  

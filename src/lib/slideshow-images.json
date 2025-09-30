@@ -1,0 +1,22 @@
+{
+    "slideshowImages": [
+      {
+        "id": "slideshow-1",
+        "description": "Audience at a business presentation",
+        "imageUrl": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1200&q=80",
+        "imageHint": "business audience"
+      },
+      {
+        "id": "slideshow-2",
+        "description": "Beautifully decorated table at a gala event",
+        "imageUrl": "https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?w=1200&q=80",
+        "imageHint": "event table setting"
+      },
+      {
+        "id": "slideshow-3",
+        "description": "Elegant wedding stage with flower arch",
+        "imageUrl": "https://picsum.photos/seed/slideshow-3/1200/800",
+        "imageHint": "wedding stage flowers"
+      }
+    ]
+  }

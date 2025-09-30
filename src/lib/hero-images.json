@@ -1,0 +1,48 @@
+
+{
+    "heroImages": [
+      {
+        "id": "hero-1",
+        "description": "Elegant wedding reception with hanging lights",
+        "imageUrl": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1920&q=80",
+        "imageHint": "wedding reception"
+      },
+      {
+        "id": "hero-2",
+        "description": "Corporate event with a speaker on stage",
+        "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1920&q=80",
+        "imageHint": "corporate event"
+      },
+      {
+        "id": "hero-3",
+        "description": "Lively concert with a crowd and stage lights",
+        "imageUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1920&q=80",
+        "imageHint": "live concert"
+      },
+      {
+        "id": "hero-4",
+        "description": "Joyful birthday celebration with balloons",
+        "imageUrl": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1920&q=80",
+        "imageHint": "birthday party"
+      },
+      {
+        "id": "hero-5",
+        "description": "Luxurious Gala Dinner Setting",
+        "imageUrl": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80",
+        "imageHint": "gala dinner"
+      },
+      {
+        "id": "hero-6",
+        "description": "Vibrant Outdoor Festival",
+        "imageUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920&q=80",
+        "imageHint": "outdoor festival"
+      },
+      {
+        "id": "hero-7",
+        "description": "Intimate Private Party",
+        "imageUrl": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1920&q=80",
+        "imageHint": "private party"
+      }
+    ]
+  }
+  
