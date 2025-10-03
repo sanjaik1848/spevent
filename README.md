@@ -89,6 +89,8 @@ Your website includes a **floating WhatsApp chat widget** that:
 - ✅ **Responsive Design** for all devices
 - ✅ **SEO Optimized**
 - ✅ **Fast Loading**
+- ✅ **Purple Theme** for main website
+- ✅ **Organic Food Page** with green theme
 
 ## 🆘 Need Help?
 
