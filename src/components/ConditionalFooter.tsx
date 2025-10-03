@@ -10,7 +10,7 @@ interface ConditionalFooterProps {
 export default function ConditionalFooter({ content }: ConditionalFooterProps) {
   const pathname = usePathname();
   
-  // Don't show footer on admin pages
+  // Don't show footer on admin pages only
   if (pathname.startsWith('/admin')) {
     return null;
   }

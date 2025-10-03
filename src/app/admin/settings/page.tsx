@@ -18,18 +18,18 @@ export default function AdminSettingsPage() {
   const [activeTab, setActiveTab] = useState("general");
   const [settings, setSettings] = useState({
     // General Settings
-    siteName: "Tamil Kitchen",
-    siteDescription: "Authentic Tamil Nadu Cuisine Catering Services",
-    siteUrl: "https://tamilkitchen.com",
-    adminEmail: "admin@tamilkitchen.com",
+    siteName: "SP Events",
+    siteDescription: "Professional Event Management Services",
+    siteUrl: "https://spevents.com",
+    adminEmail: "admin@spevents.com",
     timezone: "America/New_York",
     language: "en",
     
     // Business Settings
-    businessName: "Tamil Kitchen Catering",
+    businessName: "SP Events",
     businessPhone: "+1 (555) 123-4567",
-    businessEmail: "info@tamilkitchen.com",
-    businessAddress: "123 Main Street, City, State 12345",
+    businessEmail: "info@spevents.com",
+    businessAddress: "123 Event Plaza, Downtown District, City 12345",
     businessHours: "Mon-Sun: 9:00 AM - 9:00 PM",
     currency: "USD",
     taxRate: 8.5,
@@ -55,9 +55,9 @@ export default function AdminSettingsPage() {
     customCss: "",
     
     // SEO Settings
-    metaTitle: "Tamil Kitchen - Authentic Tamil Nadu Cuisine",
-    metaDescription: "Professional Tamil Nadu cuisine catering services for weddings, corporate events, and special occasions.",
-    metaKeywords: "Tamil Nadu cuisine, Indian catering, South Indian food, wedding catering",
+    metaTitle: "SP Events - Professional Event Management",
+    metaDescription: "Professional event management services for weddings, corporate events, and special occasions.",
+    metaKeywords: "event management, wedding planning, corporate events, party planning",
     googleAnalytics: "",
     facebookPixel: "",
     
@@ -78,16 +78,16 @@ export default function AdminSettingsPage() {
   const resetSettings = () => {
     // Reset to default values
     setSettings({
-      siteName: "Tamil Kitchen",
-      siteDescription: "Authentic Tamil Nadu Cuisine Catering Services",
-      siteUrl: "https://tamilkitchen.com",
-      adminEmail: "admin@tamilkitchen.com",
+      siteName: "SP Events",
+      siteDescription: "Professional Event Management Services",
+      siteUrl: "https://spevents.com",
+      adminEmail: "admin@spevents.com",
       timezone: "America/New_York",
       language: "en",
-      businessName: "Tamil Kitchen Catering",
+      businessName: "SP Events",
       businessPhone: "+1 (555) 123-4567",
-      businessEmail: "info@tamilkitchen.com",
-      businessAddress: "123 Main Street, City, State 12345",
+      businessEmail: "info@spevents.com",
+      businessAddress: "123 Event Plaza, Downtown District, City 12345",
       businessHours: "Mon-Sun: 9:00 AM - 9:00 PM",
       currency: "USD",
       taxRate: 8.5,
@@ -105,9 +105,9 @@ export default function AdminSettingsPage() {
       logoUrl: "",
       faviconUrl: "",
       customCss: "",
-      metaTitle: "Tamil Kitchen - Authentic Tamil Nadu Cuisine",
-      metaDescription: "Professional Tamil Nadu cuisine catering services for weddings, corporate events, and special occasions.",
-      metaKeywords: "Tamil Nadu cuisine, Indian catering, South Indian food, wedding catering",
+      metaTitle: "SP Events - Professional Event Management",
+      metaDescription: "Professional event management services for weddings, corporate events, and special occasions.",
+      metaKeywords: "event management, wedding planning, corporate events, party planning",
       googleAnalytics: "",
       facebookPixel: "",
       autoBackup: true,

@@ -1,4 +1,4 @@
-# 🚀 Elite Events Website - Deployment Guide
+# 🚀 SP Events Website - Deployment Guide
 
 ## 📋 Pre-Deployment Checklist
 
@@ -224,6 +224,6 @@ All content is editable through the admin panel. Default content includes:
 
 ---
 
-**🎯 Your Elite Events website is now ready for deployment!**
+**🎯 Your SP Events website is now ready for deployment!**
 
 Choose your preferred deployment method and follow the steps above. The website includes everything needed for a professional event management business.

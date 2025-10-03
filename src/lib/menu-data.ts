@@ -13,6 +13,7 @@ export type MenuData = {
     mainCourses: MenuItem[];
     desserts: MenuItem[];
     veg: MenuItem[];
+    organic: MenuItem[];
 }
 
 export const menuData: MenuData = data;

@@ -68,7 +68,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       
       // Save to localStorage
       if (typeof window !== 'undefined') {
-        localStorage.setItem('adminUser', JSON.stringify(userData));
+        localStorage.setItem('admin_authenticated', 'true');
+        localStorage.setItem('admin_user', JSON.stringify(userData));
       }
       
       return true;

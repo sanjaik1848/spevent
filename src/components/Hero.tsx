@@ -74,15 +74,15 @@ export default function Hero({ content }: { content: { title: string; subtitle: 
         </motion.div>
       </AnimatePresence>
 
-           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6 lg:px-8">
+           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-3 sm:px-4 lg:px-8">
              <motion.h1 
                key={index + '-h1'}
                initial={{ opacity: 0, y: 30 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.8, delay: 0.2 }}
-               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-white drop-shadow-lg"
+               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold mb-4 sm:mb-6 text-white drop-shadow-lg leading-tight"
              >
-               {content?.title ?? 'Elite Event Management'}
+               {content?.title ?? 'SP Events'}
              </motion.h1>
         
              <motion.p 
@@ -90,7 +90,7 @@ export default function Hero({ content }: { content: { title: string; subtitle: 
                initial={{ opacity: 0, y: 20 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.8, delay: 0.4 }}
-               className="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto mb-10 text-white/90 drop-shadow-md leading-relaxed"
+               className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-auto mb-6 sm:mb-8 lg:mb-10 text-white/90 drop-shadow-md leading-relaxed px-2"
              >
                {content?.subtitle ?? 'Creating unforgettable experiences with elegance and precision. Let us bring your vision to life.'}
              </motion.p>
@@ -101,7 +101,7 @@ export default function Hero({ content }: { content: { title: string; subtitle: 
                animate={{ opacity: 1, scale: 1 }}
                transition={{ duration: 0.5, delay: 0.6 }}
              >
-               <Button asChild size="lg" className="btn-primary text-lg px-10 py-5">
+               <Button asChild size="lg" className="btn-primary text-sm sm:text-base lg:text-lg px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5">
                  <Link href="/services">Explore Our Services</Link>
                </Button>
              </motion.div>
@@ -109,23 +109,23 @@ export default function Hero({ content }: { content: { title: string; subtitle: 
 
        {/* Navigation Arrows */}
       <div className="absolute inset-y-0 left-0 flex items-center">
-        <button onClick={prevSlide} className="p-2 m-2 bg-black/30 rounded-full hover:bg-black/50 transition-colors">
-          <ChevronLeft className="w-8 h-8" />
+        <button onClick={prevSlide} className="p-1 sm:p-2 m-1 sm:m-2 bg-black/30 rounded-full hover:bg-black/50 transition-colors">
+          <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
         </button>
       </div>
       <div className="absolute inset-y-0 right-0 flex items-center">
-        <button onClick={nextSlide} className="p-2 m-2 bg-black/30 rounded-full hover:bg-black/50 transition-colors">
-          <ChevronRight className="w-8 h-8" />
+        <button onClick={nextSlide} className="p-1 sm:p-2 m-1 sm:m-2 bg-black/30 rounded-full hover:bg-black/50 transition-colors">
+          <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
         </button>
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-4 sm:bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 flex gap-1 sm:gap-2">
         {heroImages.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`w-3 h-3 rounded-full transition-colors ${i === index ? 'bg-primary' : 'bg-white/50'}`}
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${i === index ? 'bg-primary' : 'bg-white/50'}`}
           />
         ))}
       </div>

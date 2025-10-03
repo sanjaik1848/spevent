@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Elite Events Website Deployment Script
+# SP Events Website Deployment Script
 # This script builds and prepares the website for deployment
 
-echo "🚀 Starting Elite Events Website Deployment..."
+echo "🚀 Starting SP Events Website Deployment..."
 
 # Colors for output
 RED='\033[0;31m'
@@ -83,7 +83,7 @@ cp next.config.ts deploy-package/
 
 # Create deployment info
 cat > deploy-package/DEPLOYMENT_INFO.txt << EOF
-Elite Events Website Deployment Package
+SP Events Website Deployment Package
 Generated on: $(date)
 Node.js version: $(node --version)
 npm version: $(npm --version)

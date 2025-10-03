@@ -1,8 +1,8 @@
 @echo off
-REM Elite Events Website Deployment Script for Windows
+REM SP Events Website Deployment Script for Windows
 REM This script builds and prepares the website for deployment
 
-echo 🚀 Starting Elite Events Website Deployment...
+echo 🚀 Starting SP Events Website Deployment...
 
 REM Check if Node.js is installed
 node --version >nul 2>&1
@@ -64,7 +64,7 @@ copy package-lock.json deploy-package\
 copy next.config.ts deploy-package\
 
 REM Create deployment info
-echo Elite Events Website Deployment Package > deploy-package\DEPLOYMENT_INFO.txt
+echo SP Events Website Deployment Package > deploy-package\DEPLOYMENT_INFO.txt
 echo Generated on: %date% %time% >> deploy-package\DEPLOYMENT_INFO.txt
 echo Node.js version: >> deploy-package\DEPLOYMENT_INFO.txt
 node --version >> deploy-package\DEPLOYMENT_INFO.txt

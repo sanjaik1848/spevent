@@ -1,4 +1,4 @@
-# **App Name**: Eventide Planner
+# **App Name**: SP Events
 
 ## Core Features:
 

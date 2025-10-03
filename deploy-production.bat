@@ -1,8 +1,8 @@
 @echo off
-REM 🚀 Elite Events Website - Production Deployment Script (Windows)
+REM 🚀 SP Events Website - Production Deployment Script (Windows)
 REM This script prepares and deploys the website for production
 
-echo 🚀 Starting Elite Events Website Deployment...
+echo 🚀 Starting SP Events Website Deployment...
 
 REM Check if Node.js is installed
 node --version >nul 2>&1

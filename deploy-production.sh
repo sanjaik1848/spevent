@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# 🚀 Elite Events Website - Production Deployment Script
+# 🚀 SP Events Website - Production Deployment Script
 # This script prepares and deploys the website for production
 
 set -e  # Exit on any error
 
-echo "🚀 Starting Elite Events Website Deployment..."
+echo "🚀 Starting SP Events Website Deployment..."
 
 # Colors for output
 RED='\033[0;31m'

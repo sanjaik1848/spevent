@@ -6,7 +6,6 @@ import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import Promo from "@/components/Promo";
 import ImageSlideshow from "@/components/ImageSlideshow";
-import ClientStatsSection from "@/components/ClientStatsSection";
 import { defaultContent } from "@/lib/page-content";
 import type { PageContent } from "@/lib/page-content";
 
@@ -22,7 +21,6 @@ export default async function WebsitePage() {
         <Promo content={content?.promo} />
         <ImageSlideshow />
         <Services />
-        <ClientStatsSection />
         <About content={content?.about} />
         <GalleryPreview />
         <Testimonials />

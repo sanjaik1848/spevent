@@ -103,5 +103,43 @@
             "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=800&q=80",
             "imageHint": "vegetable curry"
         }
+    ],
+    "organic": [
+        { 
+            "name": "Organic Quinoa Salad", 
+            "description": "Fresh organic quinoa mixed with seasonal vegetables, herbs, and a light lemon vinaigrette dressing.", 
+            "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+            "imageHint": "organic quinoa salad"
+        },
+        { 
+            "name": "Farm Fresh Organic Soup", 
+            "description": "Hearty soup made with organic vegetables, herbs, and spices, served with organic bread.", 
+            "imageUrl": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=80",
+            "imageHint": "organic vegetable soup"
+        },
+        { 
+            "name": "Organic Green Smoothie Bowl", 
+            "description": "Nutrient-rich smoothie bowl with organic spinach, kale, fruits, and superfood toppings.", 
+            "imageUrl": "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=800&q=80",
+            "imageHint": "organic smoothie bowl"
+        },
+        { 
+            "name": "Organic Buddha Bowl", 
+            "description": "Colorful bowl with organic grains, roasted vegetables, legumes, and tahini dressing.", 
+            "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+            "imageHint": "organic buddha bowl"
+        },
+        { 
+            "name": "Organic Avocado Toast", 
+            "description": "Artisanal organic bread topped with fresh avocado, organic tomatoes, and microgreens.", 
+            "imageUrl": "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=800&q=80",
+            "imageHint": "organic avocado toast"
+        },
+        { 
+            "name": "Organic Acai Bowl", 
+            "description": "Antioxidant-rich acai bowl topped with organic fruits, granola, and coconut flakes.", 
+            "imageUrl": "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=800&q=80",
+            "imageHint": "organic acai bowl"
+        }
     ]
 }

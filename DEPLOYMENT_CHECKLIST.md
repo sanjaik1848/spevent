@@ -155,4 +155,4 @@ If you encounter any issues during deployment:
 
 ## 🎉 Ready to Launch!
 
-Your Elite Events website is now ready for production deployment with all features fully functional!
+Your SP Events website is now ready for production deployment with all features fully functional!

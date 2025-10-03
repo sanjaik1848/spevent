@@ -50,41 +50,41 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-background">
-        <div className="container grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-8">
+    <section id="contact" className="py-12 sm:py-16 md:py-24 bg-background">
+        <div className="container grid md:grid-cols-2 gap-8 sm:gap-12 items-start px-4 sm:px-6">
+            <div className="space-y-6 sm:space-y-8">
                  <div className="text-left">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary">Reach Us</h2>
-                    <p className="mt-3 text-muted-foreground">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary">Reach Us</h2>
+                    <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground">
                         Have a question or want to start planning your next event? We'd love to hear from you.
                     </p>
                 </div>
-                <div className="space-y-4 text-lg text-foreground">
-                    <div className="flex items-center gap-4">
-                        <MapPin className="w-6 h-6 text-primary" />
-                        <span>456 Event Lane, Celebration City, 67890</span>
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg text-foreground">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                        <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
+                        <span className="break-words">456 Event Lane, Celebration City, 67890</span>
                     </div>
-                    <div className="flex items-center gap-4">
-                        <Phone className="w-6 h-6 text-primary" />
+                    <div className="flex items-center gap-3 sm:gap-4">
+                        <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
                         <span>(123) 555-0123</span>
                     </div>
-                    <div className="flex items-center gap-4">
-                        <Mail className="w-6 h-6 text-primary" />
-                        <span>contact@spevents.com</span>
+                    <div className="flex items-center gap-3 sm:gap-4">
+                        <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
+                        <span className="break-all">contact@spevents.com</span>
                     </div>
                 </div>
             </div>
             <div>
                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 bg-secondary p-8 rounded-lg shadow-lg">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8 bg-secondary p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg">
                         <FormField
                             control={form.control}
                             name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel>Full Name</FormLabel>
+                                <FormLabel className="text-sm sm:text-base">Full Name</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="John Doe" {...field} />
+                                    <Input placeholder="John Doe" className="text-sm sm:text-base h-10 sm:h-12" {...field} />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>
@@ -95,9 +95,9 @@ export default function ContactForm() {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel>Email Address</FormLabel>
+                                <FormLabel className="text-sm sm:text-base">Email Address</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="you@example.com" {...field} />
+                                    <Input placeholder="you@example.com" type="email" className="text-sm sm:text-base h-10 sm:h-12" {...field} />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>
@@ -108,12 +108,12 @@ export default function ContactForm() {
                             name="message"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel>Your Message</FormLabel>
+                                <FormLabel className="text-sm sm:text-base">Your Message</FormLabel>
                                 <FormControl>
                                     <Textarea
                                     placeholder="Tell us about your event..."
-                                    className="resize-none"
-                                    rows={5}
+                                    className="resize-none text-sm sm:text-base min-h-[100px] sm:min-h-[120px]"
+                                    rows={4}
                                     {...field}
                                     />
                                 </FormControl>
@@ -122,7 +122,7 @@ export default function ContactForm() {
                             )}
                         />
                         <div className="text-center">
-                            <Button type="submit" size="lg" className="w-full">Get in Touch</Button>
+                            <Button type="submit" size="lg" className="w-full text-sm sm:text-base h-10 sm:h-12">Get in Touch</Button>
                         </div>
                     </form>
                 </Form>

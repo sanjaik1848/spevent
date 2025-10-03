@@ -182,7 +182,7 @@ export default function WelcomeAdminPage() {
                   id="subtitle"
                   value={welcomeData.subtitle}
                   onChange={(e) => updateWelcomeData({ subtitle: e.target.value })}
-                  placeholder="Tamil Kitchen"
+                  placeholder="SP Events"
                 />
               </div>
               <div>

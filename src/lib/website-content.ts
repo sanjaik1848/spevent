@@ -82,7 +82,7 @@ export type WebsiteContent = {
 
 export const defaultWebsiteContent: WebsiteContent = {
   hero: {
-    title: "Elite Event Management",
+    title: "SP Events",
     subtitle: "A contemporary event management company with authentic event planning expertise. We serve freshly prepared experiences in a backdrop designed for a majestic celebration, especially for you!",
     description: "Our menu has evolved through the handed-down home-style event planning technique, with an emphasis on natural elegance. We focus on retaining the authenticity of each celebration by preparing them using indigenous creativity and timeless recipes. Join us for a traditional wedding ceremony, a quintessential corporate gathering, an authentic birthday celebration and a scrumptious gala experience.",
     backgroundImage: "https://images.unsplash.com/photo-1519167758481-83f142b8fb9c?w=1200&q=80",
@@ -90,7 +90,7 @@ export const defaultWebsiteContent: WebsiteContent = {
     ctaLink: "/services"
   },
   about: {
-    title: "About Elite Event Management",
+    title: "About SP Events",
     description: "With over 15 years of experience in event management, we specialize in creating extraordinary celebrations that exceed expectations. Our team of expert planners brings creativity, precision, and luxury service to every event.",
     features: [
       "Professional Event Planning",
@@ -135,7 +135,7 @@ export const defaultWebsiteContent: WebsiteContent = {
     title: "Contact Us",
     description: "Ready to create an unforgettable event experience? Get in touch with our expert team today!",
     phone: "+1 (555) 123-4567",
-    email: "info@eliteevents.com",
+    email: "info@spevents.com",
     address: "123 Event Plaza, Downtown District, City 12345",
     hours: "Mon-Fri: 9:00 AM - 6:00 PM, Sat: 10:00 AM - 4:00 PM"
   }
@@ -231,7 +231,7 @@ export const defaultStarClients: StarClient[] = [
     name: "Priya Sharma",
     company: "Tech Solutions Inc.",
     imageUrl: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&q=80",
-    testimonial: "Tamil Kitchen made our wedding reception absolutely perfect. The authentic flavors and professional service exceeded our expectations.",
+    testimonial: "SP Events made our wedding reception absolutely perfect. The authentic flavors and professional service exceeded our expectations.",
     rating: 5,
     eventType: "Wedding",
     featured: true

@@ -22,6 +22,24 @@ const testimonials = [
     role: 'Birthday Client',
     placeholderId: 'testimonial-3'
   },
+  {
+    quote: 'Outstanding service from start to finish! Our anniversary celebration was magical, and all our guests are still talking about it months later.',
+    name: 'Robert & Sarah',
+    role: 'Anniversary Couple',
+    placeholderId: 'testimonial-4'
+  },
+  {
+    quote: 'Professional, creative, and absolutely reliable. SP Events made our product launch event unforgettable. The attention to detail was remarkable.',
+    name: 'Maria Rodriguez',
+    role: 'Marketing Director',
+    placeholderId: 'testimonial-5'
+  },
+  {
+    quote: 'From planning to execution, everything was seamless. Our graduation party was a huge hit thanks to SP Events\' amazing team and creativity.',
+    name: 'Alex Thompson',
+    role: 'Graduate',
+    placeholderId: 'testimonial-6'
+  },
 ];
 
 export default function Testimonials() {

@@ -1,4 +1,4 @@
-# 🚀 Elite Events Website - Production Dockerfile
+# 🚀 SP Events Website - Production Dockerfile
 # Multi-stage build for optimal production image
 
 # Stage 1: Build stage

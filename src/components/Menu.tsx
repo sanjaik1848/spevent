@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
@@ -68,11 +69,12 @@ export default function Menu({ menuData, pageContent }: { menuData: MenuData, pa
     }, [menuData]);
 
     const filterOptions = [
-        { key: "all", label: "All Items", count: menuData.starters.length + menuData.mainCourses.length + menuData.veg.length + menuData.desserts.length },
+        { key: "all", label: "All Items", count: menuData.starters.length + menuData.mainCourses.length + menuData.veg.length + menuData.desserts.length + menuData.organic.length },
         { key: "starters", label: "Starters", count: menuData.starters.length },
         { key: "mainCourses", label: "Main Courses", count: menuData.mainCourses.length },
         { key: "veg", label: "Vegetarian", count: menuData.veg.length },
         { key: "desserts", label: "Desserts", count: menuData.desserts.length },
+        { key: "organic", label: "Organic Food", count: menuData.organic.length },
     ];
 
     const getFilteredItems = () => {
@@ -81,7 +83,8 @@ export default function Menu({ menuData, pageContent }: { menuData: MenuData, pa
                 starters: menuData.starters,
                 mainCourses: menuData.mainCourses,
                 veg: menuData.veg,
-                desserts: menuData.desserts
+                desserts: menuData.desserts,
+                organic: menuData.organic
             };
         }
         
@@ -89,7 +92,8 @@ export default function Menu({ menuData, pageContent }: { menuData: MenuData, pa
             starters: activeFilter === "starters" ? menuData.starters : [],
             mainCourses: activeFilter === "mainCourses" ? menuData.mainCourses : [],
             veg: activeFilter === "veg" ? menuData.veg : [],
-            desserts: activeFilter === "desserts" ? menuData.desserts : []
+            desserts: activeFilter === "desserts" ? menuData.desserts : [],
+            organic: activeFilter === "organic" ? menuData.organic : []
         };
     };
 
@@ -109,23 +113,43 @@ export default function Menu({ menuData, pageContent }: { menuData: MenuData, pa
 
         {/* Filter Options */}
         <div className="flex flex-wrap justify-center gap-3 mb-12 px-4">
-            {filterOptions.map((option) => (
-                <Button
-                    key={option.key}
-                    variant={activeFilter === option.key ? "default" : "outline"}
-                    onClick={() => setActiveFilter(option.key)}
-                    className={`relative text-sm px-6 py-3 rounded-xl transition-all duration-300 ${
-                        activeFilter === option.key 
-                            ? 'btn-primary' 
-                            : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-amber-600 hover:text-amber-600'
-                    }`}
-                >
-                    {option.label}
-                    <Badge variant="secondary" className="ml-2 text-xs bg-white/20 text-white">
-                        {option.count}
-                    </Badge>
-                </Button>
-            ))}
+            {filterOptions.map((option) => {
+                if (option.key === "organic") {
+                    return (
+                        <Button
+                            key={option.key}
+                            asChild
+                            variant="outline"
+                            className="relative text-sm px-6 py-3 rounded-xl transition-all duration-300 bg-green-50 border-2 border-green-200 text-green-700 hover:border-green-600 hover:text-green-600 hover:bg-green-100"
+                        >
+                            <Link href="/organic-food">
+                                {option.label}
+                                <Badge variant="secondary" className="ml-2 text-xs bg-green-600 text-white">
+                                    {option.count}
+                                </Badge>
+                            </Link>
+                        </Button>
+                    );
+                }
+                
+                return (
+                    <Button
+                        key={option.key}
+                        variant={activeFilter === option.key ? "default" : "outline"}
+                        onClick={() => setActiveFilter(option.key)}
+                        className={`relative text-sm px-6 py-3 rounded-xl transition-all duration-300 ${
+                            activeFilter === option.key 
+                                ? 'btn-primary' 
+                                : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-amber-600 hover:text-amber-600'
+                        }`}
+                    >
+                        {option.label}
+                        <Badge variant="secondary" className="ml-2 text-xs bg-white/20 text-white">
+                            {option.count}
+                        </Badge>
+                    </Button>
+                );
+            })}
         </div>
         
         <div className="max-w-7xl mx-auto">
@@ -140,6 +164,9 @@ export default function Menu({ menuData, pageContent }: { menuData: MenuData, pa
             )}
             {filteredData.desserts.length > 0 && (
                 <MenuSection title="Desserts" items={filteredData.desserts} loading={loading} />
+            )}
+            {filteredData.organic.length > 0 && (
+                <MenuSection title="Organic Food" items={filteredData.organic} loading={loading} />
             )}
         </div>
       </div>

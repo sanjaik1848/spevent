@@ -53,6 +53,7 @@ export default function Promo({ content }: { content: PromoContent | undefined }
             </Link>
           </Button>
         </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="p-4">
              <div className="text-5xl font-bold text-primary flex justify-center items-center">

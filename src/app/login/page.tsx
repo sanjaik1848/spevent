@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -10,16 +11,14 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
+  const { login, isAuthenticated } = useAuth();
 
   // Check if already authenticated
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const isAuthenticated = localStorage.getItem('admin_authenticated');
-      if (isAuthenticated === 'true') {
-        router.push('/admin');
-      }
+    if (isAuthenticated) {
+      router.push('/admin');
     }
-  }, [router]);
+  }, [isAuthenticated, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,33 +27,23 @@ export default function LoginPage() {
 
     console.log("Login attempt:", { email, password });
 
-    // Simple authentication check
-    if (email === "your-admin@admin.com" && password === "your-SP@1234") {
-      console.log("Authentication successful, storing data...");
-      
-      // Store authentication in localStorage
-      localStorage.setItem("admin_authenticated", "true");
-      localStorage.setItem("admin_user", JSON.stringify({
-        email: email,
-        name: "Your Name",
-        loginTime: new Date().toISOString()
-      }));
-      
-      console.log("Data stored, redirecting to admin...");
-      
-      // Force page reload to ensure auth state is updated
-      window.location.href = "/admin";
-    } else {
-      console.log("Authentication failed");
-      setError("Invalid email or password. Please try again.");
+    try {
+      const success = await login(email, password);
+      if (success) {
+        console.log("Authentication successful, redirecting...");
+        router.push('/admin');
+      } else {
+        console.log("Authentication failed");
+        setError("Invalid email or password. Please try again.");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setError("An error occurred during login. Please try again.");
+    } finally {
       setIsLoading(false);
     }
   };
 
-  const fillCredentials = () => {
-    setEmail("your-admin@admin.com");
-    setPassword("your-SP@1234");
-  };
 
   return (
     <div style={{
@@ -80,8 +69,8 @@ export default function LoginPage() {
       <div style={{
         backgroundColor: 'rgba(255, 255, 255, 0.95)',
         backdropFilter: 'blur(10px)',
-        padding: '48px',
-        borderRadius: '16px',
+        padding: '24px',
+        borderRadius: '12px',
         boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
         maxWidth: '420px',
         width: '100%',
@@ -89,75 +78,63 @@ export default function LoginPage() {
         border: '1px solid rgba(255, 255, 255, 0.2)'
       }}>
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '24px' }}>
           <div style={{
-            width: '64px',
-            height: '64px',
+            width: '48px',
+            height: '48px',
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            borderRadius: '16px',
+            borderRadius: '12px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            margin: '0 auto 16px',
+            margin: '0 auto 12px',
             boxShadow: '0 8px 16px rgba(102, 126, 234, 0.3)'
           }}>
-            <span style={{ color: 'white', fontSize: '24px', fontWeight: 'bold' }}>A</span>
+            <span style={{ color: 'white', fontSize: '20px', fontWeight: 'bold' }}>A</span>
           </div>
           <h1 style={{ 
-            fontSize: '28px', 
+            fontSize: '24px', 
             fontWeight: '700', 
             color: '#1a202c', 
-            marginBottom: '8px',
+            marginBottom: '6px',
             letterSpacing: '-0.5px'
           }}>
             Admin Login
           </h1>
           <p style={{ 
             color: '#718096', 
-            fontSize: '16px',
+            fontSize: '14px',
             margin: 0
           }}>
             Sign in to access the admin dashboard
           </p>
         </div>
 
-        {/* Success Message */}
-        <div style={{
-          backgroundColor: '#f0fff4',
-          border: '1px solid #9ae6b4',
-          borderRadius: '8px',
-          padding: '12px 16px',
-          marginBottom: '24px'
-        }}>
-          <p style={{ color: '#22543d', margin: 0, fontSize: '14px', fontWeight: '500' }}>
-            ✅ Login system is working perfectly!
-          </p>
-        </div>
 
         {/* Login Form */}
         <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: '20px' }}>
+          <div style={{ marginBottom: '16px' }}>
             <label style={{ 
               display: 'block', 
-              marginBottom: '8px', 
+              marginBottom: '6px', 
               color: '#2d3748', 
               fontWeight: '600',
-              fontSize: '14px'
+              fontSize: '13px'
             }}>
               Email Address
             </label>
             <div style={{ position: 'relative' }}>
               <input 
                 type="email" 
-                placeholder="your-admin@admin.com"
+                placeholder="admin@spevents.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 style={{
                   width: '100%',
-                  padding: '14px 16px',
+                  padding: '12px 14px',
                   border: '2px solid #e2e8f0',
-                  borderRadius: '8px',
-                  fontSize: '16px',
+                  borderRadius: '6px',
+                  fontSize: '14px',
                   boxSizing: 'border-box',
                   transition: 'border-color 0.2s',
                   outline: 'none'
@@ -169,13 +146,13 @@ export default function LoginPage() {
             </div>
           </div>
           
-          <div style={{ marginBottom: '24px' }}>
+          <div style={{ marginBottom: '20px' }}>
             <label style={{ 
               display: 'block', 
-              marginBottom: '8px', 
+              marginBottom: '6px', 
               color: '#2d3748', 
               fontWeight: '600',
-              fontSize: '14px'
+              fontSize: '13px'
             }}>
               Password
             </label>
@@ -187,11 +164,11 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 style={{
                   width: '100%',
-                  padding: '14px 16px',
-                  paddingRight: '48px',
+                  padding: '12px 14px',
+                  paddingRight: '40px',
                   border: '2px solid #e2e8f0',
-                  borderRadius: '8px',
-                  fontSize: '16px',
+                  borderRadius: '6px',
+                  fontSize: '14px',
                   boxSizing: 'border-box',
                   transition: 'border-color 0.2s',
                   outline: 'none'
@@ -205,14 +182,14 @@ export default function LoginPage() {
                 onClick={() => setShowPassword(!showPassword)}
                 style={{
                   position: 'absolute',
-                  right: '12px',
+                  right: '10px',
                   top: '50%',
                   transform: 'translateY(-50%)',
                   background: 'none',
                   border: 'none',
                   cursor: 'pointer',
                   color: '#718096',
-                  fontSize: '18px'
+                  fontSize: '16px'
                 }}
               >
                 {showPassword ? '🙈' : '👁️'}
@@ -284,74 +261,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Quick Fill Button */}
-        <div style={{ marginBottom: '16px' }}>
-          <button 
-            type="button"
-            onClick={fillCredentials}
-            style={{
-              width: '100%',
-              backgroundColor: '#f7fafc',
-              color: '#4a5568',
-              padding: '12px',
-              border: '1px solid #e2e8f0',
-              borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: '500',
-              cursor: 'pointer',
-              transition: 'all 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#edf2f7';
-              e.currentTarget.style.borderColor = '#cbd5e0';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#f7fafc';
-              e.currentTarget.style.borderColor = '#e2e8f0';
-            }}
-          >
-            🔑 Fill Admin Credentials
-          </button>
-        </div>
-
-        {/* Test Admin Button */}
-        <div style={{ marginBottom: '24px' }}>
-          <button 
-            type="button"
-            onClick={() => {
-              console.log("Test redirect to admin...");
-              localStorage.setItem("admin_authenticated", "true");
-              localStorage.setItem("admin_user", JSON.stringify({
-                email: "your-admin@admin.com",
-                name: "Your Name",
-                loginTime: new Date().toISOString()
-              }));
-              window.location.href = "/admin";
-            }}
-            style={{
-              width: '100%',
-              backgroundColor: '#e6fffa',
-              color: '#234e52',
-              padding: '12px',
-              border: '1px solid #81e6d9',
-              borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: '500',
-              cursor: 'pointer',
-              transition: 'all 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#b2f5ea';
-              e.currentTarget.style.borderColor = '#4fd1c7';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#e6fffa';
-              e.currentTarget.style.borderColor = '#81e6d9';
-            }}
-          >
-            🚀 Test Direct Admin Access
-          </button>
-        </div>
 
         {/* Footer */}
         <div style={{ 
@@ -362,7 +271,7 @@ export default function LoginPage() {
           paddingTop: '20px'
         }}>
           <p style={{ margin: 0 }}>
-            © 2024 Elite Event Management. All rights reserved.
+            © 2024 SP Events. All rights reserved.
           </p>
         </div>
       </div>
