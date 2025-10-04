@@ -89,8 +89,19 @@ Your website includes a **floating WhatsApp chat widget** that:
 - ✅ **Responsive Design** for all devices
 - ✅ **SEO Optimized**
 - ✅ **Fast Loading**
-- ✅ **Purple Theme** for main website
-- ✅ **Organic Food Page** with green theme
+- ✅ **Gold Theme** with dual-tone gradients
+- ✅ **Mobile-Optimized** layouts
+- ✅ **Circular Image Alignment** fixes
+- ✅ **Organic Food Page** with separate theme
+
+## 🎨 Latest Updates
+
+- ✨ **Dual-tone gold gradient headers** across all pages
+- 📱 **2-column mobile layouts** for better mobile experience
+- 🖼️ **Fixed circular image alignment** on mobile devices
+- 🟡 **WhatsApp button** with beautiful gold theme and animations
+- 🎭 **Enhanced animations** and hover effects
+- ♿ **Accessibility improvements** with proper ARIA labels
 
 ## 🆘 Need Help?
 
