@@ -100,7 +100,7 @@ export default function MediaGallery({ items, categoryName }: { items: MediaItem
 
         {/* Gallery Content */}
         {viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-6">
             {items.map((item, index) => (
               <div
                 key={item.id}
@@ -150,12 +150,12 @@ export default function MediaGallery({ items, categoryName }: { items: MediaItem
                 </div>
                 
                 {/* Content Info */}
-                <div className="p-6">
-                  <h3 className="text-lg font-serif font-semibold text-gray-800 mb-2 group-hover:text-gradient transition-colors duration-300">
+                <div className="p-3 md:p-6">
+                  <h3 className="text-sm md:text-lg font-serif font-semibold text-gray-800 mb-1 md:mb-2 group-hover:text-gradient transition-colors duration-300">
                     {item.title}
                   </h3>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 capitalize">{item.category}</span>
+                    <span className="text-xs md:text-sm text-gray-500 capitalize">{item.category}</span>
                     <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full"></div>
                   </div>
                 </div>
@@ -214,12 +214,12 @@ export default function MediaGallery({ items, categoryName }: { items: MediaItem
                 </div>
                 
                 {/* Content Info */}
-                <div className="p-6">
-                  <h3 className="text-lg font-serif font-semibold text-gray-800 mb-2 group-hover:text-gradient transition-colors duration-300">
+                <div className="p-3 md:p-6">
+                  <h3 className="text-sm md:text-lg font-serif font-semibold text-gray-800 mb-1 md:mb-2 group-hover:text-gradient transition-colors duration-300">
                     {item.title}
                   </h3>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 capitalize">{item.category}</span>
+                    <span className="text-xs md:text-sm text-gray-500 capitalize">{item.category}</span>
                     <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full"></div>
                   </div>
                 </div>

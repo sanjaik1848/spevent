@@ -1,5 +1,5 @@
 'use client';
-import { Twitter, Instagram, Facebook } from "lucide-react";
+import { Twitter, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -70,7 +70,9 @@ export default function Footer({ content }: { content: FooterContent | undefined
                      <h3 className="font-bold text-base sm:text-lg font-serif text-gradient">SP Events</h3>
                    )}
                  </div>
-                 <p className={cn("text-sm sm:text-base", isOrganicPage ? "text-white/90" : "text-muted-foreground")}>Crafting unforgettable experiences with elegance and precision.</p>
+                 <p className={cn("text-sm sm:text-base", isOrganicPage ? "text-white/90" : "text-muted-foreground")}>
+                   {content?.description || "Crafting unforgettable experiences with elegance and precision."}
+                 </p>
                </div>
                <div>
                  <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 font-serif">Quick Links</h3>
@@ -82,26 +84,55 @@ export default function Footer({ content }: { content: FooterContent | undefined
                  </ul>
                </div>
                <div>
-                 <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 font-serif">Connect With Us</h3>
+                 <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 font-serif">
+                   {content?.connectTitle || "Connect With Us"}
+                 </h3>
                  <ul className={cn("space-y-1 sm:space-y-2 text-sm sm:text-base", isOrganicPage ? "text-white/80" : "text-muted-foreground")}>
                    <li className="flex items-center justify-center md:justify-start">
                      <span className="font-semibold mr-2">Phone:</span>
-                     <span className="break-all">+1-234-567-8900</span>
+                     <span className="break-all">{content?.contactInfo?.phone || "+1-234-567-8900"}</span>
                    </li>
                    <li className="flex items-center justify-center md:justify-start">
                      <span className="font-semibold mr-2">Email:</span>
-                     <span className="break-all">info@spevents.com</span>
+                     <span className="break-all">{content?.contactInfo?.email || "info@spevents.com"}</span>
                    </li>
                    <li className="flex items-center justify-center md:justify-start">
                      <span className="font-semibold mr-2">Address:</span>
-                     <span className="break-words">SP Events Center, Downtown District</span>
+                     <span className="break-words">{content?.contactInfo?.address || "SP Events Center, Downtown District"}</span>
                    </li>
                  </ul>
                  <div className="mt-3 sm:mt-4">
                    <div className="flex justify-center md:justify-start space-x-3 sm:space-x-4">
-                     <Link href="#" className={cn("transition-colors w-5 h-5 sm:w-6 sm:h-6", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}><Twitter className="w-full h-full" /></Link>
-                     <Link href="#" className={cn("transition-colors w-5 h-5 sm:w-6 sm:h-6", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}><Instagram className="w-full h-full" /></Link>
-                     <Link href="#" className={cn("transition-colors w-5 h-5 sm:w-6 sm:h-6", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}><Facebook className="w-full h-full" /></Link>
+                     {content?.socialLinks?.instagram && (
+                       <Link href={content.socialLinks.instagram} target="_blank" rel="noopener noreferrer" 
+                             className={cn("transition-colors w-5 h-5 sm:w-6 sm:h-6", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}>
+                         <Instagram className="w-full h-full" />
+                       </Link>
+                     )}
+                     {content?.socialLinks?.facebook && (
+                       <Link href={content.socialLinks.facebook} target="_blank" rel="noopener noreferrer" 
+                             className={cn("transition-colors w-5 h-5 sm:w-6 sm:h-6", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}>
+                         <Facebook className="w-full h-full" />
+                       </Link>
+                     )}
+                     {content?.socialLinks?.twitter && (
+                       <Link href={content.socialLinks.twitter} target="_blank" rel="noopener noreferrer" 
+                             className={cn("transition-colors w-5 h-5 sm:w-6 sm:h-6", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}>
+                         <Twitter className="w-full h-full" />
+                       </Link>
+                     )}
+                     {content?.socialLinks?.linkedin && (
+                       <Link href={content.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" 
+                             className={cn("transition-colors w-5 h-5 sm:w-6 sm:h-6", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}>
+                         <Linkedin className="w-full h-full" />
+                       </Link>
+                     )}
+                     {content?.socialLinks?.youtube && (
+                       <Link href={content.socialLinks.youtube} target="_blank" rel="noopener noreferrer" 
+                             className={cn("transition-colors w-5 h-5 sm:w-6 sm:h-6", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}>
+                         <Youtube className="w-full h-full" />
+                       </Link>
+                     )}
                    </div>
                  </div>
                </div>

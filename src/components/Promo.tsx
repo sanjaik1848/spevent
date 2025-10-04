@@ -20,7 +20,7 @@ export default function Promo({ content }: { content: PromoContent | undefined }
                     <div className="h-12 w-48 bg-muted rounded-md"></div>
                     <div className="h-12 w-36 bg-muted rounded-md"></div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-center">
                     <div className="h-24 bg-muted rounded-md"></div>
                     <div className="h-24 bg-muted rounded-md"></div>
                     <div className="h-24 bg-muted rounded-md"></div>

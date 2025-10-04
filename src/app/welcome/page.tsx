@@ -65,16 +65,17 @@ export default function WelcomePage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 relative overflow-hidden">
       {/* Auto-redirect Timer */}
       {isTimerActive && (
-        <div className="fixed top-6 right-6 z-50">
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-4">
-            <div className="flex items-center space-x-3">
-              <div className="flex items-center space-x-2">
-                <Clock className="w-4 h-4 text-blue-600" />
-                <span className="text-sm font-medium text-gray-700">
-                  Auto-redirect in
+        <div className="fixed top-2 right-2 sm:top-6 sm:right-6 z-50 max-w-xs">
+          <div className="bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg border border-white/20 p-2 sm:p-4">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
+                <span className="text-xs sm:text-sm font-medium text-gray-700">
+                  <span className="hidden sm:inline">Auto-redirect in</span>
+                  <span className="sm:hidden">Redirect in</span>
                 </span>
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">{timeLeft}</span>
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-xs sm:text-sm">{timeLeft}</span>
                 </div>
               </div>
               <Button
@@ -83,10 +84,10 @@ export default function WelcomePage() {
                 onClick={skipTimer}
                 className="text-gray-500 hover:text-gray-700 p-1"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3 h-3 sm:w-4 sm:h-4" />
               </Button>
             </div>
-            <div className="mt-2 w-full bg-gray-200 rounded-full h-1">
+            <div className="mt-1 sm:mt-2 w-full bg-gray-200 rounded-full h-1">
               <div 
                 className="bg-gradient-to-r from-blue-600 to-indigo-600 h-1 rounded-full transition-all duration-1000"
                 style={{ width: `${((10 - timeLeft) / 10) * 100}%` }}
@@ -103,7 +104,7 @@ export default function WelcomePage() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-purple-500 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="max-w-6xl mx-auto w-full relative z-10">
+      <div className="max-w-6xl mx-auto w-full relative z-10 pt-16 sm:pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Side - Content */}
           <div className={`space-y-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
@@ -143,14 +144,15 @@ export default function WelcomePage() {
 
             {/* Auto-redirect notification */}
             {isTimerActive && (
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-6">
-                <div className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-blue-600" />
-                  <div>
-                    <p className="text-sm font-medium text-blue-800">
-                      You'll be automatically redirected to our website in {timeLeft} seconds
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 sm:p-4 mt-4 sm:mt-6">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0" />
+                  <div className="min-w-0">
+                    <p className="text-xs sm:text-sm font-medium text-blue-800">
+                      <span className="hidden sm:inline">You'll be automatically redirected to our website in {timeLeft} seconds</span>
+                      <span className="sm:hidden">Auto-redirect in {timeLeft}s</span>
                     </p>
-                    <p className="text-xs text-blue-600 mt-1">
+                    <p className="text-xs text-blue-600 mt-1 hidden sm:block">
                       Click "Enter Website" now or wait for automatic redirect
                     </p>
                   </div>

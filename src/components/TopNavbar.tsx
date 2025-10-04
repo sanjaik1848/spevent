@@ -23,6 +23,7 @@ export default function TopNavbar() {
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Food", href: "/food" },
+    { name: "Organic Food", href: "/organic-food" },
     { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/contact" },
     { name: "Book Event", href: "/booking" },

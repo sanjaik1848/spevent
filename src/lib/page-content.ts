@@ -28,6 +28,20 @@ export interface PageContent {
     footer: {
         quickLinksTitle: string;
         connectTitle: string;
+        description: string;
+        socialLinks: {
+            instagram: string;
+            facebook: string;
+            twitter: string;
+            linkedin: string;
+            youtube: string;
+        };
+        contactInfo: {
+            phone: string;
+            email: string;
+            address: string;
+            website: string;
+        };
     };
 }
 
@@ -61,5 +75,19 @@ export const defaultContent: PageContent = {
     footer: {
         quickLinksTitle: "Quick Links",
         connectTitle: "Connect With Us",
+        description: "Crafting unforgettable experiences with elegance and precision.",
+        socialLinks: {
+            instagram: "https://instagram.com/spevents",
+            facebook: "https://facebook.com/spevents",
+            twitter: "https://twitter.com/spevents",
+            linkedin: "https://linkedin.com/company/spevents",
+            youtube: "https://youtube.com/spevents"
+        },
+        contactInfo: {
+            phone: "+1-234-567-8900",
+            email: "info@spevents.com",
+            address: "SP Events Center, Downtown District",
+            website: "https://spevents.com"
+        }
     }
 };

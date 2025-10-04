@@ -1,0 +1,15 @@
+SP Events Website - MilesWeb Deployment Package 
+ 
+Created: 03/10/2025 21:56:46.31 
+ 
+Files included: 
+- Static website files (out/) 
+- Database schema (database/) 
+- Configuration files 
+- Documentation 
+ 
+Next steps: 
+1. Upload all files to MilesWeb public_html 
+2. Set up MySQL database using schema.sql 
+3. Configure environment variables 
+4. Test your website 

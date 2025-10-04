@@ -24,7 +24,7 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-16">
           {galleryCategories.map((cat) => {
             const image = placeholderImages.find(p => p.id === cat.placeholderId);
             if (!image) return null;
@@ -54,15 +54,15 @@ export default function Gallery() {
                   </div>
                   
                   {/* Content Info */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-serif font-semibold text-gray-800 mb-2 group-hover:text-gradient transition-colors duration-300">
+                  <div className="p-3 md:p-6">
+                    <h3 className="text-sm md:text-xl font-serif font-semibold text-gray-800 mb-1 md:mb-2 group-hover:text-gradient transition-colors duration-300">
                       {cat.name}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-4">
+                    <p className="text-gray-600 text-xs md:text-sm mb-2 md:mb-4">
                       {cat.description}
                     </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-500">View Gallery</span>
+                      <span className="text-xs md:text-sm text-gray-500">View Gallery</span>
                       <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
                     </div>
                   </div>

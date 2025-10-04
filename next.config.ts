@@ -9,13 +9,14 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react']
   },
-  // Enable static export for deployment
+  // For MilesWeb static hosting
+  output: 'export',
   trailingSlash: true,
-  // Only use static export for production builds
-  ...(process.env.NODE_ENV === 'production' && {
-    output: 'export',
-    distDir: 'out'
-  })
+  distDir: 'out',
+  // Disable API routes for static export
+  async rewrites() {
+    return [];
+  }
 };
 
 export default nextConfig;

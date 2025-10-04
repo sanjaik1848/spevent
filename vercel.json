@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "name": "sp-events",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_APP_NAME": "SP Events",
+    "NEXT_PUBLIC_APP_URL": "https://spevent.vercel.app"
+  }
+}
+

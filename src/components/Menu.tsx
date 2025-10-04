@@ -16,8 +16,8 @@ const MenuItemCard = ({ item, index }: { item: MenuItem; index: number }) => {
     if (!item.imageUrl) return null;
 
     return (
-        <div key={`${item.name}-${index}`} className="group flex flex-col items-center space-y-4 text-center">
-            <div className="relative w-full h-80 overflow-hidden rounded-3xl shadow-professional group-hover:shadow-professional-lg transition-all duration-500 group-hover:scale-105">
+        <div key={`${item.name}-${index}`} className="group flex flex-col items-center space-y-2 md:space-y-4 text-center">
+            <div className="relative w-full h-60 md:h-80 overflow-hidden rounded-3xl shadow-professional group-hover:shadow-professional-lg transition-all duration-500 group-hover:scale-105">
                 <Image
                     src={item.imageUrl}
                     alt={item.name}
@@ -27,10 +27,10 @@ const MenuItemCard = ({ item, index }: { item: MenuItem; index: number }) => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <h3 className="text-xl font-serif font-semibold text-gray-800 transition-colors duration-300 group-hover:text-gradient">
+            <h3 className="text-sm md:text-xl font-serif font-semibold text-gray-800 transition-colors duration-300 group-hover:text-gradient">
                 {item.name}
             </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                 {item.description}
             </p>
         </div>
@@ -40,7 +40,7 @@ const MenuItemCard = ({ item, index }: { item: MenuItem; index: number }) => {
 const MenuSection = ({ title, items, loading }: { title: string, items: MenuItem[], loading: boolean }) => (
     <div className="mb-20 px-4 sm:px-0">
         <h2 className="text-3xl sm:text-4xl font-serif font-bold text-center text-gray-800 mb-12">{title}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12">
             {loading ? (
                 Array.from({length:3}).map((_, index) => (
                     <div key={`skeleton-${title}-${index}`} className="flex flex-col items-center space-y-4">

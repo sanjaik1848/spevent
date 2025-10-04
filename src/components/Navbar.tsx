@@ -15,6 +15,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Food", href: "/food" },
+    { name: "Organic Food", href: "/organic-food" },
     { name: "Services", href: "/services" },
     { name: "Gallery", href: "/gallery" },
     { name: "About", href: "/about" },

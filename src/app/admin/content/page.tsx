@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,7 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useWebsiteContent, useReviews, useBookings, useStarClients, useStats } from "@/hooks/useWebsiteContent";
-import { Eye, Save, RotateCcw, Plus, Trash2, Edit, Star, Calendar, Users, DollarSign, TrendingUp, Upload, Image as ImageIcon, X } from "lucide-react";
+import { Eye, Save, RotateCcw, Plus, Trash2, Edit, Star, Calendar, Users, DollarSign, TrendingUp, Upload, Image as ImageIcon, Video, X } from "lucide-react";
 import Link from "next/link";
 
 const iconOptions = [
@@ -43,20 +43,50 @@ export default function WebsiteContentAdminPage() {
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  // Initialize footer data if it doesn't exist
+  useEffect(() => {
+    if (!contentLoading && content && !content.footer) {
+      updateContent('footer', {
+        quickLinksTitle: "Quick Links",
+        connectTitle: "Connect With Us",
+        description: "Crafting unforgettable experiences with elegance and precision.",
+        socialLinks: {
+          instagram: "https://instagram.com/spevents",
+          facebook: "https://facebook.com/spevents",
+          twitter: "https://twitter.com/spevents",
+          linkedin: "https://linkedin.com/company/spevents",
+          youtube: "https://youtube.com/spevents"
+        },
+        contactInfo: {
+          phone: "+1-234-567-8900",
+          email: "info@spevents.com",
+          address: "SP Events Center, Downtown District",
+          website: "https://spevents.com"
+        }
+      });
+    }
+  }, [contentLoading, content, updateContent]);
+
+  const handleMediaUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     const field = event.target.getAttribute('data-field');
     if (!file || !field) return;
 
-    // Validate file type
-    if (!file.type.startsWith('image/')) {
-      alert('Please select a valid image file');
+    // Validate file type (images and videos)
+    const isImage = file.type.startsWith('image/');
+    const isVideo = file.type.startsWith('video/');
+    
+    if (!isImage && !isVideo) {
+      alert('Please select a valid image or video file');
       return;
     }
 
-    // Validate file size (max 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      alert('Image size should be less than 5MB');
+    // Validate file size (max 50MB for videos, 5MB for images)
+    const maxSize = isVideo ? 50 * 1024 * 1024 : 5 * 1024 * 1024;
+    if (file.size > maxSize) {
+      const fileType = isVideo ? 'Video' : 'Image';
+      const maxSizeMB = isVideo ? '50MB' : '5MB';
+      alert(`${fileType} size should be less than ${maxSizeMB}`);
       return;
     }
 
@@ -75,8 +105,8 @@ export default function WebsiteContentAdminPage() {
       };
       reader.readAsDataURL(file);
     } catch (error) {
-      console.error('Error uploading image:', error);
-      alert('Error uploading image. Please try again.');
+      console.error('Error uploading media:', error);
+      alert('Error uploading media. Please try again.');
       setIsUploading(false);
     }
   };
@@ -88,7 +118,7 @@ export default function WebsiteContentAdminPage() {
     }
   };
 
-  const clearImage = (field: string) => {
+  const clearMedia = (field: string) => {
     const [section, fieldName] = field.split('.');
     updateContent(section as keyof typeof content, { [fieldName]: '' });
     if (fileInputRef.current) {
@@ -205,12 +235,13 @@ export default function WebsiteContentAdminPage() {
 
       {/* Main Content Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
           <TabsTrigger value="content" className="text-xs sm:text-sm">Content</TabsTrigger>
           <TabsTrigger value="reviews" className="text-xs sm:text-sm">Reviews</TabsTrigger>
           <TabsTrigger value="bookings" className="text-xs sm:text-sm">Bookings</TabsTrigger>
           <TabsTrigger value="clients" className="text-xs sm:text-sm">Star Clients</TabsTrigger>
           <TabsTrigger value="stats" className="text-xs sm:text-sm">Statistics</TabsTrigger>
+          <TabsTrigger value="footer" className="text-xs sm:text-sm">Footer</TabsTrigger>
         </TabsList>
 
         {/* Content Tab */}
@@ -266,13 +297,13 @@ export default function WebsiteContentAdminPage() {
                         className="flex items-center gap-2"
                       >
                         <Upload className="w-4 h-4" />
-                        Upload
+                        Upload Media
                       </Button>
                       {content.hero.backgroundImage && (
                         <Button
                           type="button"
                           variant="outline"
-                          onClick={() => clearImage('hero.backgroundImage')}
+                          onClick={() => clearMedia('hero.backgroundImage')}
                           className="flex items-center gap-2 text-red-600 hover:text-red-700"
                         >
                           <X className="w-4 h-4" />
@@ -282,15 +313,36 @@ export default function WebsiteContentAdminPage() {
                     </div>
                     {content.hero.backgroundImage && (
                       <div className="relative">
-                        <img
-                          src={content.hero.backgroundImage}
-                          alt="Hero preview"
-                          className="w-full h-32 object-cover rounded-lg border"
-                          onError={(e) => {
-                            e.currentTarget.src = "https://via.placeholder.com/400x200?text=Image+Not+Found";
-                          }}
-                        />
-                        <div className="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs">
+                        {content.hero.backgroundImage.startsWith('data:video/') ? (
+                          <video
+                            src={content.hero.backgroundImage}
+                            className="w-full h-32 object-cover rounded-lg border"
+                            controls={false}
+                            muted
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              const errorDiv = document.createElement('div');
+                              errorDiv.className = 'w-full h-32 bg-gray-200 rounded-lg border flex items-center justify-center text-gray-500';
+                              errorDiv.textContent = 'Video Not Found';
+                              e.currentTarget.parentNode?.appendChild(errorDiv);
+                            }}
+                          />
+                        ) : (
+                          <img
+                            src={content.hero.backgroundImage}
+                            alt="Hero preview"
+                            className="w-full h-32 object-cover rounded-lg border"
+                            onError={(e) => {
+                              e.currentTarget.src = "https://via.placeholder.com/400x200?text=Image+Not+Found";
+                            }}
+                          />
+                        )}
+                        <div className="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+                          {content.hero.backgroundImage.startsWith('data:video/') ? (
+                            <Video className="w-3 h-3" />
+                          ) : (
+                            <ImageIcon className="w-3 h-3" />
+                          )}
                           {content.hero.backgroundImage.startsWith('data:') ? 'Uploaded' : 'URL'}
                         </div>
                       </div>
@@ -342,13 +394,13 @@ export default function WebsiteContentAdminPage() {
                         className="flex items-center gap-2"
                       >
                         <Upload className="w-4 h-4" />
-                        Upload
+                        Upload Media
                       </Button>
                       {content.about.imageUrl && (
                         <Button
                           type="button"
                           variant="outline"
-                          onClick={() => clearImage('about.imageUrl')}
+                          onClick={() => clearMedia('about.imageUrl')}
                           className="flex items-center gap-2 text-red-600 hover:text-red-700"
                         >
                           <X className="w-4 h-4" />
@@ -358,15 +410,36 @@ export default function WebsiteContentAdminPage() {
                     </div>
                     {content.about.imageUrl && (
                       <div className="relative">
-                        <img
-                          src={content.about.imageUrl}
-                          alt="About preview"
-                          className="w-full h-32 object-cover rounded-lg border"
-                          onError={(e) => {
-                            e.currentTarget.src = "https://via.placeholder.com/400x200?text=Image+Not+Found";
-                          }}
-                        />
-                        <div className="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs">
+                        {content.about.imageUrl.startsWith('data:video/') ? (
+                          <video
+                            src={content.about.imageUrl}
+                            className="w-full h-32 object-cover rounded-lg border"
+                            controls={false}
+                            muted
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              const errorDiv = document.createElement('div');
+                              errorDiv.className = 'w-full h-32 bg-gray-200 rounded-lg border flex items-center justify-center text-gray-500';
+                              errorDiv.textContent = 'Video Not Found';
+                              e.currentTarget.parentNode?.appendChild(errorDiv);
+                            }}
+                          />
+                        ) : (
+                          <img
+                            src={content.about.imageUrl}
+                            alt="About preview"
+                            className="w-full h-32 object-cover rounded-lg border"
+                            onError={(e) => {
+                              e.currentTarget.src = "https://via.placeholder.com/400x200?text=Image+Not+Found";
+                            }}
+                          />
+                        )}
+                        <div className="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+                          {content.about.imageUrl.startsWith('data:video/') ? (
+                            <Video className="w-3 h-3" />
+                          ) : (
+                            <ImageIcon className="w-3 h-3" />
+                          )}
                           {content.about.imageUrl.startsWith('data:') ? 'Uploaded' : 'URL'}
                         </div>
                       </div>
@@ -1060,6 +1133,181 @@ export default function WebsiteContentAdminPage() {
             </CardContent>
           </Card>
         </TabsContent>
+
+        {/* Footer Tab */}
+        <TabsContent value="footer" className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Footer General Settings */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Footer Settings</CardTitle>
+                <CardDescription>Manage footer content and titles</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <Label htmlFor="footerDescription">Description</Label>
+                  <Textarea
+                    id="footerDescription"
+                    value={content.footer?.description || ""}
+                    onChange={(e) => updateContent('footer', { description: e.target.value })}
+                    rows={2}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footerQuickLinksTitle">Quick Links Title</Label>
+                  <Input
+                    id="footerQuickLinksTitle"
+                    value={content.footer?.quickLinksTitle || ""}
+                    onChange={(e) => updateContent('footer', { quickLinksTitle: e.target.value })}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footerConnectTitle">Connect Title</Label>
+                  <Input
+                    id="footerConnectTitle"
+                    value={content.footer?.connectTitle || ""}
+                    onChange={(e) => updateContent('footer', { connectTitle: e.target.value })}
+                  />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Contact Information */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Contact Information</CardTitle>
+                <CardDescription>Update contact details displayed in footer</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <Label htmlFor="footerPhone">Phone Number</Label>
+                  <Input
+                    id="footerPhone"
+                    value={content.footer?.contactInfo?.phone || ""}
+                    onChange={(e) => updateContent('footer', { 
+                      contactInfo: { ...content.footer?.contactInfo, phone: e.target.value }
+                    })}
+                    placeholder="+1-234-567-8900"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footerEmail">Email Address</Label>
+                  <Input
+                    id="footerEmail"
+                    type="email"
+                    value={content.footer?.contactInfo?.email || ""}
+                    onChange={(e) => updateContent('footer', { 
+                      contactInfo: { ...content.footer?.contactInfo, email: e.target.value }
+                    })}
+                    placeholder="info@spevents.com"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footerAddress">Address</Label>
+                  <Textarea
+                    id="footerAddress"
+                    value={content.footer?.contactInfo?.address || ""}
+                    onChange={(e) => updateContent('footer', { 
+                      contactInfo: { ...content.footer?.contactInfo, address: e.target.value }
+                    })}
+                    rows={2}
+                    placeholder="SP Events Center, Downtown District"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footerWebsite">Website URL</Label>
+                  <Input
+                    id="footerWebsite"
+                    type="url"
+                    value={content.footer?.contactInfo?.website || ""}
+                    onChange={(e) => updateContent('footer', { 
+                      contactInfo: { ...content.footer?.contactInfo, website: e.target.value }
+                    })}
+                    placeholder="https://spevents.com"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Social Media Links */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Social Media Links</CardTitle>
+              <CardDescription>Manage social media platform links</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="footerInstagram">Instagram URL</Label>
+                  <Input
+                    id="footerInstagram"
+                    type="url"
+                    value={content.footer?.socialLinks?.instagram || ""}
+                    onChange={(e) => updateContent('footer', { 
+                      socialLinks: { ...content.footer?.socialLinks, instagram: e.target.value }
+                    })}
+                    placeholder="https://instagram.com/spevents"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footerFacebook">Facebook URL</Label>
+                  <Input
+                    id="footerFacebook"
+                    type="url"
+                    value={content.footer?.socialLinks?.facebook || ""}
+                    onChange={(e) => updateContent('footer', { 
+                      socialLinks: { ...content.footer?.socialLinks, facebook: e.target.value }
+                    })}
+                    placeholder="https://facebook.com/spevents"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footerTwitter">Twitter URL</Label>
+                  <Input
+                    id="footerTwitter"
+                    type="url"
+                    value={content.footer?.socialLinks?.twitter || ""}
+                    onChange={(e) => updateContent('footer', { 
+                      socialLinks: { ...content.footer?.socialLinks, twitter: e.target.value }
+                    })}
+                    placeholder="https://twitter.com/spevents"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footerLinkedin">LinkedIn URL</Label>
+                  <Input
+                    id="footerLinkedin"
+                    type="url"
+                    value={content.footer?.socialLinks?.linkedin || ""}
+                    onChange={(e) => updateContent('footer', { 
+                      socialLinks: { ...content.footer?.socialLinks, linkedin: e.target.value }
+                    })}
+                    placeholder="https://linkedin.com/company/spevents"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="footerYoutube">YouTube URL</Label>
+                  <Input
+                    id="footerYoutube"
+                    type="url"
+                    value={content.footer?.socialLinks?.youtube || ""}
+                    onChange={(e) => updateContent('footer', { 
+                      socialLinks: { ...content.footer?.socialLinks, youtube: e.target.value }
+                    })}
+                    placeholder="https://youtube.com/spevents"
+                  />
+                </div>
+              </div>
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  <strong>Note:</strong> Social media icons will only appear in the footer if their corresponding URLs are provided. 
+                  Leave fields empty to hide specific social media platforms.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
       </Tabs>
 
       {/* Save Status */}
@@ -1070,12 +1318,12 @@ export default function WebsiteContentAdminPage() {
         </div>
       </div>
 
-      {/* Hidden file input for image uploads */}
+      {/* Hidden file input for media uploads */}
       <input
         ref={fileInputRef}
         type="file"
-        accept="image/*"
-        onChange={handleImageUpload}
+        accept="image/*,video/*"
+        onChange={handleMediaUpload}
         className="hidden"
       />
     </div>

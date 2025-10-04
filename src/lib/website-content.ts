@@ -78,6 +78,24 @@ export type WebsiteContent = {
     address: string;
     hours: string;
   };
+  footer: {
+    quickLinksTitle: string;
+    connectTitle: string;
+    description: string;
+    socialLinks: {
+      instagram: string;
+      facebook: string;
+      twitter: string;
+      linkedin: string;
+      youtube: string;
+    };
+    contactInfo: {
+      phone: string;
+      email: string;
+      address: string;
+      website: string;
+    };
+  };
 };
 
 export const defaultWebsiteContent: WebsiteContent = {
@@ -138,6 +156,24 @@ export const defaultWebsiteContent: WebsiteContent = {
     email: "info@spevents.com",
     address: "123 Event Plaza, Downtown District, City 12345",
     hours: "Mon-Fri: 9:00 AM - 6:00 PM, Sat: 10:00 AM - 4:00 PM"
+  },
+  footer: {
+    quickLinksTitle: "Quick Links",
+    connectTitle: "Connect With Us",
+    description: "Crafting unforgettable experiences with elegance and precision.",
+    socialLinks: {
+      instagram: "https://instagram.com/spevents",
+      facebook: "https://facebook.com/spevents",
+      twitter: "https://twitter.com/spevents",
+      linkedin: "https://linkedin.com/company/spevents",
+      youtube: "https://youtube.com/spevents"
+    },
+    contactInfo: {
+      phone: "+1-234-567-8900",
+      email: "info@spevents.com",
+      address: "SP Events Center, Downtown District",
+      website: "https://spevents.com"
+    }
   }
 };
 

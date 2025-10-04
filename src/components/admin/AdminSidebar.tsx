@@ -24,13 +24,16 @@ import {
   Home as HomeIcon,
   Edit,
   MessageSquare,
-  TrendingUp
+  TrendingUp,
+  Leaf
 } from "lucide-react";
 
 const navigation = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { name: "Welcome Page", href: "/admin/welcome", icon: HomeIcon },
   { name: "Website Content", href: "/admin/content", icon: Edit },
+  { name: "About Page", href: "/admin/about", icon: Users },
+  { name: "Organic Food", href: "/admin/organic-food", icon: Leaf },
   { name: "Client Statistics", href: "/admin/stats", icon: TrendingUp },
   { name: "Bookings", href: "/admin/bookings", icon: Calendar, badge: "8" },
   { name: "Gallery", href: "/admin/gallery", icon: Camera },
