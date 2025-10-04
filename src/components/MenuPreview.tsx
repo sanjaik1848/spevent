@@ -14,7 +14,7 @@ export default function ServicesPreview() {
                         src="https://picsum.photos/seed/service-preview/800/600"
                         alt="Preview of event services"
                         fill
-                        className="object-cover"
+                        className="object-cover object-center"
                         data-ai-hint="event planning services"
                     />
                 </div>

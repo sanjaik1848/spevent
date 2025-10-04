@@ -50,41 +50,47 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-24 bg-background">
-        <div className="container grid md:grid-cols-2 gap-8 sm:gap-12 items-start px-4 sm:px-6">
+    <section id="contact" className="py-12 sm:py-16 md:py-24 bg-motorcycle-dark">
+        <div className="container-professional grid md:grid-cols-2 gap-8 sm:gap-12 items-start">
             <div className="space-y-6 sm:space-y-8">
                  <div className="text-left">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary">Reach Us</h2>
-                    <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent">Reach Us</h2>
+                    <p className="mt-2 sm:mt-3 text-sm sm:text-base text-white">
                         Have a question or want to start planning your next event? We'd love to hear from you.
                     </p>
                 </div>
-                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg text-foreground">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                        <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg text-white">
+                    <div className="flex items-center gap-3 sm:gap-4 group">
+                        <div className="w-12 h-12 bg-motorcycle-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-black flex-shrink-0" />
+                        </div>
                         <span className="break-words">456 Event Lane, Celebration City, 67890</span>
                     </div>
-                    <div className="flex items-center gap-3 sm:gap-4">
-                        <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
+                    <div className="flex items-center gap-3 sm:gap-4 group">
+                        <div className="w-12 h-12 bg-motorcycle-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-black flex-shrink-0" />
+                        </div>
                         <span>(123) 555-0123</span>
                     </div>
-                    <div className="flex items-center gap-3 sm:gap-4">
-                        <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
+                    <div className="flex items-center gap-3 sm:gap-4 group">
+                        <div className="w-12 h-12 bg-motorcycle-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-black flex-shrink-0" />
+                        </div>
                         <span className="break-all">contact@spevents.com</span>
                     </div>
                 </div>
             </div>
             <div>
                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8 bg-secondary p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8 bg-motorcycle-card p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg card-professional border border-motorcycle-yellow">
                         <FormField
                             control={form.control}
                             name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel className="text-sm sm:text-base">Full Name</FormLabel>
+                                <FormLabel className="text-sm sm:text-base text-white">Full Name</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="John Doe" className="text-sm sm:text-base h-10 sm:h-12" {...field} />
+                                    <Input placeholder="Your Name" className="text-sm sm:text-base h-10 sm:h-12 bg-motorcycle-card text-white placeholder:text-white/60 border-motorcycle-yellow focus:ring-2 focus:ring-motorcycle-yellow" {...field} />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>
@@ -95,9 +101,9 @@ export default function ContactForm() {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel className="text-sm sm:text-base">Email Address</FormLabel>
+                                <FormLabel className="text-sm sm:text-base text-white">Email Address</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="you@example.com" type="email" className="text-sm sm:text-base h-10 sm:h-12" {...field} />
+                                    <Input placeholder="Your Email" type="email" className="text-sm sm:text-base h-10 sm:h-12 bg-motorcycle-card text-white placeholder:text-white/60 border-motorcycle-yellow focus:ring-2 focus:ring-motorcycle-yellow" {...field} />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>
@@ -108,11 +114,11 @@ export default function ContactForm() {
                             name="message"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel className="text-sm sm:text-base">Your Message</FormLabel>
+                                <FormLabel className="text-sm sm:text-base text-white">Your Message</FormLabel>
                                 <FormControl>
                                     <Textarea
                                     placeholder="Tell us about your event..."
-                                    className="resize-none text-sm sm:text-base min-h-[100px] sm:min-h-[120px]"
+                                    className="resize-none text-sm sm:text-base min-h-[100px] sm:min-h-[120px] bg-motorcycle-card text-motorcycle-white placeholder:text-motorcycle-white/60 border-motorcycle-yellow focus:ring-2 focus:ring-motorcycle-yellow"
                                     rows={4}
                                     {...field}
                                     />
@@ -122,7 +128,7 @@ export default function ContactForm() {
                             )}
                         />
                         <div className="text-center">
-                            <Button type="submit" size="lg" className="w-full text-sm sm:text-base h-10 sm:h-12">Get in Touch</Button>
+                            <Button type="submit" size="lg" className="w-full text-sm sm:text-base h-10 sm:h-12 btn-primary">Get in Touch</Button>
                         </div>
                     </form>
                 </Form>

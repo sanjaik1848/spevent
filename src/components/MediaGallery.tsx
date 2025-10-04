@@ -113,14 +113,14 @@ export default function MediaGallery({ items, categoryName }: { items: MediaItem
                       src={item.src}
                       alt={item.title}
                       fill
-                      className="object-cover transform group-hover:scale-110 transition-all duration-500"
+                      className="object-cover object-center transform group-hover:scale-110 transition-all duration-500"
                       data-ai-hint={item.title.toLowerCase()}
                     />
                   ) : (
                     <div className="relative w-full h-full">
                       <video
                         src={item.src}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
                         muted
                         loop
                         playsInline
@@ -177,14 +177,14 @@ export default function MediaGallery({ items, categoryName }: { items: MediaItem
                       alt={item.title}
                       width={800}
                       height={600}
-                      className="w-full h-auto object-cover transform group-hover:scale-110 transition-all duration-500"
+                      className="w-full h-auto object-cover object-center transform group-hover:scale-110 transition-all duration-500"
                       data-ai-hint={item.title.toLowerCase()}
                     />
                   ) : (
                     <div className="relative">
                       <video
                         src={item.src}
-                        className="w-full h-auto object-cover"
+                        className="w-full h-auto object-cover object-center"
                         muted
                         loop
                         playsInline

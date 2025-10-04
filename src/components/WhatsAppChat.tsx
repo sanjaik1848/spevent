@@ -67,17 +67,17 @@ export default function WhatsAppChat({
       <div className="fixed bottom-6 right-6 z-50">
         {isOpen && (
           <Card className="w-80 h-96 bg-white shadow-2xl border-0 rounded-2xl overflow-hidden">
-            <CardHeader className="bg-green-500 text-white p-4">
+            <CardHeader className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6 text-green-500" />
+                    <MessageCircle className="w-6 h-6 text-yellow-500 animate-pulse" />
                   </div>
                   <div>
                     <CardTitle className="text-white text-sm font-semibold">
                       {businessName}
                     </CardTitle>
-                    <p className="text-green-100 text-xs">Online now</p>
+                    <p className="text-yellow-100 text-xs animate-pulse">Online now</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -85,7 +85,7 @@ export default function WhatsAppChat({
                     variant="ghost"
                     size="sm"
                     onClick={() => setIsMinimized(!isMinimized)}
-                    className="text-white hover:bg-green-600 p-1"
+                    className="text-white hover:bg-yellow-600 p-1 transition-all duration-300 hover:scale-110"
                   >
                     <div className={`w-3 h-3 transition-transform ${isMinimized ? 'rotate-180' : ''}`}>
                       ▾
@@ -95,7 +95,7 @@ export default function WhatsAppChat({
                     variant="ghost"
                     size="sm"
                     onClick={() => setIsOpen(false)}
-                    className="text-white hover:bg-green-600 p-1"
+                    className="text-white hover:bg-yellow-600 p-1 transition-all duration-300 hover:scale-110"
                   >
                     <X className="w-4 h-4" />
                   </Button>
@@ -120,7 +120,7 @@ export default function WhatsAppChat({
                         variant="outline"
                         size="sm"
                         onClick={() => handleQuickMessage(msg)}
-                        className="w-full text-left justify-start text-xs h-auto p-2 hover:bg-green-50 hover:border-green-200"
+                        className="w-full text-left justify-start text-xs h-auto p-2 hover:bg-yellow-50 hover:border-yellow-200 transition-all duration-300 hover:scale-105"
                       >
                         {msg}
                       </Button>
@@ -141,8 +141,9 @@ export default function WhatsAppChat({
                     <Button
                       onClick={handleSendMessage}
                       disabled={!message.trim()}
-                      className="bg-green-500 hover:bg-green-600"
+                      className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 transition-all duration-300 hover:scale-110"
                       size="sm"
+                      suppressHydrationWarning
                     >
                       <Send className="w-4 h-4" />
                     </Button>
@@ -152,8 +153,9 @@ export default function WhatsAppChat({
                   <Button
                     onClick={handleCall}
                     variant="outline"
-                    className="w-full text-green-600 border-green-200 hover:bg-green-50"
+                    className="w-full text-yellow-600 border-yellow-200 hover:bg-yellow-50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                     size="sm"
+                    suppressHydrationWarning
                   >
                     <Phone className="w-4 h-4 mr-2" />
                     Call {phoneNumber}
@@ -168,10 +170,11 @@ export default function WhatsAppChat({
         {!isOpen && (
           <Button
             onClick={() => setIsOpen(true)}
-            className="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+            className="w-14 h-14 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-110 animate-pulse"
             size="icon"
+            suppressHydrationWarning
           >
-            <MessageCircle className="w-8 h-8 text-white" />
+            <MessageCircle className="w-8 h-8 text-white animate-bounce" />
           </Button>
         )}
       </div>
@@ -179,7 +182,7 @@ export default function WhatsAppChat({
       {/* Pulse Animation */}
       {!isOpen && (
         <div className="fixed bottom-6 right-6 z-40">
-          <div className="w-14 h-14 bg-green-500 rounded-full animate-ping opacity-75"></div>
+          <div className="w-14 h-14 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full animate-ping opacity-75"></div>
         </div>
       )}
     </>

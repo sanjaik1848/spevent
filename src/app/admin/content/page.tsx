@@ -287,7 +287,7 @@ export default function WebsiteContentAdminPage() {
                         id="heroImage"
                         value={content.hero.backgroundImage}
                         onChange={(e) => updateContent('hero', { backgroundImage: e.target.value })}
-                        placeholder="https://images.unsplash.com/..."
+                        placeholder="Image URL"
                       />
                       <Button
                         type="button"
@@ -384,7 +384,7 @@ export default function WebsiteContentAdminPage() {
                         id="aboutImage"
                         value={content.about.imageUrl}
                         onChange={(e) => updateContent('about', { imageUrl: e.target.value })}
-                        placeholder="https://images.unsplash.com/..."
+                        placeholder="Image URL"
                       />
                       <Button
                         type="button"

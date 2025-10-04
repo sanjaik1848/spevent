@@ -31,48 +31,48 @@ export default function Promo({ content }: { content: PromoContent | undefined }
   }
 
   return (
-    <section className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto text-center max-w-4xl">
-        <h2 className="text-4xl md:text-5xl font-bold font-serif mb-4 text-foreground"
-          dangerouslySetInnerHTML={{ __html: content.title.replace(/Dream Event/g, '<span class="text-primary">Dream Event</span>') }}
-        />
-        <p className="text-lg text-muted-foreground mb-10">
-          {content.paragraph}
-        </p>
+    <section className="py-16 md:py-24 bg-motorcycle-dark">
+      <div className="container-professional text-center max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-bold font-motorcycle-heading mb-4 bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent animate-fade-in"
+            dangerouslySetInnerHTML={{ __html: content.title.replace(/Dream Event/g, '<span class="text-gradient">Dream Event</span>') }}
+          />
+           <p className="text-lg text-white mb-10 animate-fade-in">
+             {content.paragraph}
+           </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Button asChild size="lg" className="hover:scale-105 hover:shadow-lg transition-transform">
+          <Button asChild size="lg" className="btn-primary group hover:scale-105 hover:shadow-2xl transition-all duration-500 animate-pulse">
             <Link href="/booking">
-              <CalendarDays className="mr-2 h-5 w-5" />
+              <CalendarDays className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
               Schedule Consultation
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="hover:scale-105 transition-transform">
+          <Button asChild size="lg" variant="outline" className="btn-secondary group hover:scale-105 hover:bg-motorcycle-yellow hover:text-black transition-all duration-500">
             <Link href="tel:+1235550123">
-              <Phone className="mr-2 h-5 w-5" />
+              <Phone className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
               Call Us Now
             </Link>
           </Button>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="p-4">
-             <div className="text-5xl font-bold text-primary flex justify-center items-center">
+          <div className="p-3 card-professional border border-motorcycle-yellow/30 group hover:scale-105 transition-all duration-500 rounded-3xl">
+             <div className="text-5xl font-bold text-motorcycle-yellow flex justify-center items-center group-hover:animate-pulse">
                 <AnimatedCounter to={content.stats.events} />+
               </div>
-            <p className="text-muted-foreground text-lg mt-2">Events Planned</p>
-          </div>
-          <div className="p-4">
-            <div className="text-5xl font-bold text-primary flex justify-center items-center">
-              <AnimatedCounter to={content.stats.satisfaction} />%
-            </div>
-            <p className="text-muted-foreground text-lg mt-2">Client Satisfaction</p>
-          </div>
-          <div className="p-4 flex flex-col items-center">
-            <div className="flex items-center text-5xl font-bold text-primary">
-                <AnimatedCounter to={content.stats.rating} />
-                <Star className="w-10 h-10 text-primary fill-primary" />
-            </div>
-            <p className="text-muted-foreground text-lg mt-2">Average Rating</p>
+               <p className="text-white text-lg mt-2">Events Planned</p>
+             </div>
+             <div className="p-3 card-professional border border-motorcycle-yellow/30 group hover:scale-105 transition-all duration-500 rounded-3xl">
+               <div className="text-4xl font-bold text-motorcycle-yellow flex justify-center items-center group-hover:animate-pulse">
+                 <AnimatedCounter to={content.stats.satisfaction} />%
+               </div>
+               <p className="text-white text-lg mt-2">Client Satisfaction</p>
+             </div>
+             <div className="p-3 flex flex-col items-center card-professional border border-motorcycle-yellow/30 group hover:scale-105 transition-all duration-500 rounded-3xl">
+               <div className="flex items-center text-4xl font-bold text-motorcycle-yellow group-hover:animate-pulse">
+                   <AnimatedCounter to={content.stats.rating} />
+                   <Star className="w-8 h-8 text-motorcycle-yellow fill-motorcycle-yellow group-hover:animate-spin" />
+               </div>
+               <p className="text-white text-lg mt-2">Average Rating</p>
           </div>
         </div>
       </div>

@@ -16,21 +16,21 @@ const MenuItemCard = ({ item, index }: { item: MenuItem; index: number }) => {
     if (!item.imageUrl) return null;
 
     return (
-        <div key={`${item.name}-${index}`} className="group flex flex-col items-center space-y-2 md:space-y-4 text-center">
-            <div className="relative w-full h-60 md:h-80 overflow-hidden rounded-3xl shadow-professional group-hover:shadow-professional-lg transition-all duration-500 group-hover:scale-105">
+        <div key={`${item.name}-${index}`} className="group flex flex-col items-center space-y-2 text-center card-professional p-3 rounded-3xl">
+            <div className="relative w-full h-48 md:h-60 overflow-hidden rounded-3xl shadow-professional group-hover:shadow-professional-lg transition-all duration-500 group-hover:scale-105">
                 <Image
                     src={item.imageUrl}
                     alt={item.name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover object-center sm:object-center transition-transform duration-500 group-hover:scale-110"
                     data-ai-hint={item.imageHint}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <h3 className="text-sm md:text-xl font-serif font-semibold text-gray-800 transition-colors duration-300 group-hover:text-gradient">
+            <h3 className="text-sm md:text-lg font-serif font-semibold text-white transition-colors duration-300 group-hover:text-gradient">
                 {item.name}
             </h3>
-            <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+            <p className="text-xs md:text-sm text-white leading-relaxed">
                 {item.description}
             </p>
         </div>
@@ -39,13 +39,13 @@ const MenuItemCard = ({ item, index }: { item: MenuItem; index: number }) => {
 
 const MenuSection = ({ title, items, loading }: { title: string, items: MenuItem[], loading: boolean }) => (
     <div className="mb-20 px-4 sm:px-0">
-        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-center text-gray-800 mb-12">{title}</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12">
+        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-center bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent mb-12">{title}</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-8">
             {loading ? (
                 Array.from({length:3}).map((_, index) => (
-                    <div key={`skeleton-${title}-${index}`} className="flex flex-col items-center space-y-4">
-                        <Skeleton className="w-full h-80 rounded-3xl" />
-                        <Skeleton className="h-6 w-3/4" />
+                    <div key={`skeleton-${title}-${index}`} className="flex flex-col items-center space-y-2">
+                        <Skeleton className="w-full h-60 rounded-3xl" />
+                        <Skeleton className="h-5 w-3/4" />
                     </div>
                 ))
             ) : (
@@ -100,19 +100,19 @@ export default function Menu({ menuData, pageContent }: { menuData: MenuData, pa
     const filteredData = getFilteredItems();
 
   return (
-    <section id="menu" className="section-padding bg-white">
+    <section id="menu" className="section-padding bg-motorcycle-dark">
       <div className="container-professional">
         <div className="text-center mb-16">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-gray-800 mb-6">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif font-bold bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent mb-6">
             {pageContent?.title || 'A Taste of Tradition'}
           </h1>
-          <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white mt-6 max-w-3xl mx-auto leading-relaxed">
             {pageContent?.paragraph || 'Explore the rich and authentic flavors of Tamil Nadu, available for your events.'}
           </p>
         </div>
 
         {/* Filter Options */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12 px-4">
+        <div className="flex flex-wrap justify-center gap-2 mb-10 px-4">
             {filterOptions.map((option) => {
                 if (option.key === "organic") {
                     return (
@@ -120,11 +120,11 @@ export default function Menu({ menuData, pageContent }: { menuData: MenuData, pa
                             key={option.key}
                             asChild
                             variant="outline"
-                            className="relative text-sm px-6 py-3 rounded-xl transition-all duration-300 bg-green-50 border-2 border-green-200 text-green-700 hover:border-green-600 hover:text-green-600 hover:bg-green-100"
+                            className="relative text-sm px-6 py-3 rounded-xl transition-all duration-300 bg-motorcycle-card border-2 border-motorcycle-yellow text-white hover:border-motorcycle-yellow hover:text-motorcycle-yellow hover:bg-motorcycle-yellow/10"
                         >
                             <Link href="/organic-food">
                                 {option.label}
-                                <Badge variant="secondary" className="ml-2 text-xs bg-green-600 text-white">
+                                <Badge variant="secondary" className="ml-2 text-xs bg-motorcycle-yellow text-black">
                                     {option.count}
                                 </Badge>
                             </Link>
@@ -140,11 +140,11 @@ export default function Menu({ menuData, pageContent }: { menuData: MenuData, pa
                         className={`relative text-sm px-6 py-3 rounded-xl transition-all duration-300 ${
                             activeFilter === option.key 
                                 ? 'btn-primary' 
-                                : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-amber-600 hover:text-amber-600'
+                                : 'bg-motorcycle-card border-2 border-motorcycle-yellow/30 text-white hover:border-motorcycle-yellow hover:text-motorcycle-yellow hover:bg-motorcycle-yellow/10'
                         }`}
                     >
                         {option.label}
-                        <Badge variant="secondary" className="ml-2 text-xs bg-white/20 text-white">
+                        <Badge variant="secondary" className="ml-2 text-xs bg-motorcycle-yellow text-black">
                             {option.count}
                         </Badge>
                     </Button>
@@ -152,7 +152,7 @@ export default function Menu({ menuData, pageContent }: { menuData: MenuData, pa
             })}
         </div>
         
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
             {filteredData.starters.length > 0 && (
                 <MenuSection title="Starters" items={filteredData.starters} loading={loading} />
             )}

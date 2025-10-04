@@ -29,6 +29,7 @@ export default {
       fontFamily: {
         body: ['var(--font-inter)', 'sans-serif'],
         serif: ['var(--font-playfair-display)', 'serif'],
+        'motorcycle-heading': ['var(--font-playfair-display)', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -65,6 +66,14 @@ export default {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        // Motorcycle Theme Colors
+        'motorcycle': {
+          'dark': '#0a0a0a',
+          'card': '#1a1a2e',
+          'accent': '#FFD32D',
+          'yellow': '#FFD32D',
+          'white': '#ffffff',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',

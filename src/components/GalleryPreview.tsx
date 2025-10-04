@@ -13,34 +13,34 @@ const galleryImages = [
 
 export default function GalleryPreview() {
          return (
-           <section className="section-padding bg-gray-50">
+           <section className="section-padding bg-motorcycle-dark">
       <div className="container-professional">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-gray-800 mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-motorcycle-heading font-bold bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent mb-6">
             Our Event <span className="text-gradient">Portfolio</span>
           </h2>
-          <p className="max-w-3xl mx-auto text-lg sm:text-xl text-gray-600 leading-relaxed">
+          <p className="max-w-3xl mx-auto text-lg sm:text-xl text-white leading-relaxed">
             Discover the extraordinary events we've orchestrated. Each celebration tells a unique story of elegance, precision, and unforgettable moments.
           </p>
         </div>
         
-        <div className="grid grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-6 h-[700px] mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-4 h-[500px] mb-16">
           {galleryImages.map((img) => (
             <Link key={img.id} href={img.link} className={`relative rounded-3xl overflow-hidden shadow-professional group ${img.className}`}>
               <Image 
                   src={img.src} 
                   alt={img.alt} 
                   fill
-                  className="object-cover transition-all duration-500 group-hover:scale-110"
+                  className="object-cover object-center transition-all duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   data-ai-hint={img.hint}
               />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-center pb-8">
                        <div className="text-center">
-                         <h3 className="text-white text-2xl sm:text-3xl font-bold font-serif mb-2">
+                         <h3 className="text-white text-2xl sm:text-3xl font-bold font-motorcycle-heading mb-2">
                              {img.title}
                          </h3>
-                         <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-indigo-400 mx-auto rounded-full"></div>
+                         <div className="w-16 h-1 bg-gradient-to-r from-motorcycle-yellow to-yellow-400 mx-auto rounded-full"></div>
                        </div>
                       </div>
             </Link>

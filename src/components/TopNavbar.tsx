@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "./ui/sheet";
 import { usePathname } from 'next/navigation'
 import { cn } from "@/lib/utils";
 import { useLogoData } from "@/hooks/useLogoData";
@@ -30,9 +30,9 @@ export default function TopNavbar() {
   ];
   
   return (
-    <header className={`w-full z-40 bg-gray-800 text-white py-2 sm:py-4 ${isHomePage ? 'relative' : 'sticky top-0'}`}>
+    <header className={`w-full z-40 bg-motorcycle-dark text-white py-2 sm:py-4 ${isHomePage ? 'relative' : 'sticky top-0'}`}>
       <div className="container mx-auto flex items-center justify-between px-3 sm:px-4">
-        <Link href="/" className="flex items-center gap-1 sm:gap-2 text-lg sm:text-xl md:text-2xl font-serif font-bold text-white">
+        <Link href="/" className="flex items-center gap-1 sm:gap-2 text-lg sm:text-xl md:text-2xl font-motorcycle-heading font-bold text-white">
           {logoData.headerLogo.url ? (
             <Image
               src={logoData.headerLogo.url}
@@ -42,7 +42,7 @@ export default function TopNavbar() {
               className="object-contain w-6 h-6 sm:w-8 sm:h-8"
             />
                  ) : (
-                   <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg">
+                   <div className="w-6 h-6 sm:w-8 sm:h-8 bg-motorcycle-accent rounded-full flex items-center justify-center text-black font-bold text-sm sm:text-lg">
                       S
                    </div>
                  )}
@@ -52,8 +52,8 @@ export default function TopNavbar() {
         <nav className="hidden md:flex space-x-6 lg:space-x-8 items-center">
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href} className={cn(
-                "text-xs lg:text-sm font-medium transition-colors hover:text-blue-400", 
-                pathname === link.href ? "text-blue-400" : "text-white"
+                "text-xs lg:text-sm font-medium transition-colors hover:text-motorcycle-yellow", 
+                pathname === link.href ? "text-motorcycle-yellow" : "text-white"
               )}>
                 {link.name}
             </Link>
@@ -68,14 +68,15 @@ export default function TopNavbar() {
 
         <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild className="md:hidden">
-                <Button variant="ghost" size="icon" className="hover:bg-gray-700 text-white w-8 h-8">
+                <Button variant="ghost" size="icon" className="hover:bg-motorcycle-yellow/20 text-white w-8 h-8">
                     <Menu className="w-5 h-5" />
                     <span className="sr-only">Open menu</span>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="bg-gray-800 text-white border-r-gray-700 w-80">
+            <SheetContent side="left" className="bg-motorcycle-dark text-white border-r-motorcycle-yellow/30 w-80">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <div className="flex flex-col items-start py-6 space-y-6 px-4">
-                    <Link href="/" className="flex items-center gap-2 text-xl font-serif text-gradient mb-6" onClick={() => setOpen(false)}>
+                    <Link href="/" className="flex items-center gap-2 text-xl font-motorcycle-heading text-gradient mb-6" onClick={() => setOpen(false)}>
                       {logoData.headerLogo.url ? (
                         <Image
                           src={logoData.headerLogo.url}
@@ -85,7 +86,7 @@ export default function TopNavbar() {
                           className="object-contain"
                         />
                         ) : (
-                          <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                          <div className="w-6 h-6 bg-motorcycle-accent rounded-full flex items-center justify-center text-black font-bold text-sm">
                             S
                           </div>
                         )}
@@ -93,7 +94,7 @@ export default function TopNavbar() {
                     </Link>
                     <div className="space-y-4 w-full">
                       {navLinks.map((link) => (
-                          <Link key={link.name} href={link.href} onClick={() => setOpen(false)} className={cn("block text-base font-medium transition-colors hover:text-blue-400 py-2", pathname === link.href ? "text-blue-400" : "text-white")}>
+                          <Link key={link.name} href={link.href} onClick={() => setOpen(false)} className={cn("block text-base font-medium transition-colors hover:text-motorcycle-yellow py-2", pathname === link.href ? "text-motorcycle-yellow" : "text-white")}>
                               {link.name}
                           </Link>
                       ))}

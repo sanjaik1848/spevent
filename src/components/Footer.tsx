@@ -49,7 +49,7 @@ export default function Footer({ content }: { content: FooterContent | undefined
       ref={footerRef}
       className={cn(
         "w-full shadow-t-lg transition-all duration-700 ease-in-out relative",
-        isOrganicPage ? "bg-transparent text-white" : "bg-secondary text-secondary-foreground",
+        isOrganicPage ? "bg-transparent text-white" : "bg-motorcycle-dark text-motorcycle-white",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
     )}>
       <div className={cn(
@@ -70,24 +70,24 @@ export default function Footer({ content }: { content: FooterContent | undefined
                      <h3 className="font-bold text-base sm:text-lg font-serif text-gradient">SP Events</h3>
                    )}
                  </div>
-                 <p className={cn("text-sm sm:text-base", isOrganicPage ? "text-white/90" : "text-muted-foreground")}>
+                 <p className={cn("text-sm sm:text-base", isOrganicPage ? "text-white/90" : "text-motorcycle-white/80")}>
                    {content?.description || "Crafting unforgettable experiences with elegance and precision."}
                  </p>
                </div>
                <div>
                  <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 font-serif">Quick Links</h3>
-                 <ul className={cn("space-y-1 sm:space-y-2 text-sm sm:text-base", isOrganicPage ? "text-white/80" : "text-muted-foreground")}>
-                   <li><Link href="/about" className={cn("transition-colors", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}>About Us</Link></li>
-                   <li><Link href="/services" className={cn("transition-colors", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}>Services</Link></li>
-                   <li><Link href="/gallery" className={cn("transition-colors", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}>Gallery</Link></li>
-                   <li><Link href="/contact" className={cn("transition-colors", isOrganicPage ? "hover:text-green-300" : "hover:text-primary")}>Contact</Link></li>
+                 <ul className={cn("space-y-1 sm:space-y-2 text-sm sm:text-base", isOrganicPage ? "text-white/80" : "text-motorcycle-white/70")}>
+                   <li><Link href="/about" className={cn("transition-colors", isOrganicPage ? "hover:text-green-300" : "hover:text-motorcycle-yellow")}>About Us</Link></li>
+                   <li><Link href="/services" className={cn("transition-colors", isOrganicPage ? "hover:text-green-300" : "hover:text-motorcycle-yellow")}>Services</Link></li>
+                   <li><Link href="/gallery" className={cn("transition-colors", isOrganicPage ? "hover:text-green-300" : "hover:text-motorcycle-yellow")}>Gallery</Link></li>
+                   <li><Link href="/contact" className={cn("transition-colors", isOrganicPage ? "hover:text-green-300" : "hover:text-motorcycle-yellow")}>Contact</Link></li>
                  </ul>
                </div>
                <div>
                  <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 font-serif">
                    {content?.connectTitle || "Connect With Us"}
                  </h3>
-                 <ul className={cn("space-y-1 sm:space-y-2 text-sm sm:text-base", isOrganicPage ? "text-white/80" : "text-muted-foreground")}>
+                 <ul className={cn("space-y-1 sm:space-y-2 text-sm sm:text-base", isOrganicPage ? "text-white/80" : "text-motorcycle-white/70")}>
                    <li className="flex items-center justify-center md:justify-start">
                      <span className="font-semibold mr-2">Phone:</span>
                      <span className="break-all">{content?.contactInfo?.phone || "+1-234-567-8900"}</span>

@@ -9,7 +9,7 @@ export default function FoodPage() {
     return (
         <>
             <TopNavbar />
-            <main className="py-12 bg-background">
+            <main className="py-12 bg-motorcycle-dark min-h-screen">
                 <Menu menuData={menuData} pageContent={pageContent} />
             </main>
         </>

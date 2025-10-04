@@ -264,7 +264,7 @@ export default function OrganicFoodAdminPage() {
                     <Input
                       value={organicSettings.heroBackground}
                       onChange={(e) => setOrganicSettings(prev => ({ ...prev, heroBackground: e.target.value }))}
-                      placeholder="https://images.unsplash.com/photo-..."
+                      placeholder="Image URL"
                     />
                     <div className="flex gap-2 mt-2">
                       <Button
@@ -334,7 +334,7 @@ export default function OrganicFoodAdminPage() {
                     <Input
                       value={organicSettings.heroTitle}
                       onChange={(e) => setOrganicSettings(prev => ({ ...prev, heroTitle: e.target.value }))}
-                      placeholder="Organic Excellence"
+                      placeholder="Title"
                     />
                   </div>
                   <div>
@@ -342,7 +342,7 @@ export default function OrganicFoodAdminPage() {
                     <Input
                       value={organicSettings.heroSubtitle}
                       onChange={(e) => setOrganicSettings(prev => ({ ...prev, heroSubtitle: e.target.value }))}
-                      placeholder="Farm to Table"
+                      placeholder="Subtitle"
                     />
                   </div>
                   <div>
@@ -351,7 +351,7 @@ export default function OrganicFoodAdminPage() {
                       value={organicSettings.heroDescription}
                       onChange={(e) => setOrganicSettings(prev => ({ ...prev, heroDescription: e.target.value }))}
                       rows={3}
-                      placeholder="Discover the purest flavors from nature's bounty..."
+                      placeholder="Description..."
                     />
                   </div>
                   <div>
@@ -359,7 +359,7 @@ export default function OrganicFoodAdminPage() {
                     <Input
                       value={organicSettings.heroButtonText}
                       onChange={(e) => setOrganicSettings(prev => ({ ...prev, heroButtonText: e.target.value }))}
-                      placeholder="Explore Organic Menu"
+                      placeholder="Button Text"
                     />
                   </div>
                   <div>
@@ -367,7 +367,7 @@ export default function OrganicFoodAdminPage() {
                     <Input
                       value={organicSettings.heroButtonLink}
                       onChange={(e) => setOrganicSettings(prev => ({ ...prev, heroButtonLink: e.target.value }))}
-                      placeholder="/organic-food"
+                      placeholder="/link"
                     />
                   </div>
                 </CardContent>

@@ -45,33 +45,33 @@ export default function OrganicFoodPage() {
                 </span>
               </h1>
               <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-lg">
-                Discover our premium selection of organic, farm-fresh foods. Every item is carefully sourced from certified organic farms, ensuring the highest quality and nutritional value for your events.
+                Discover our premium selection of organic foods. Every item is carefully sourced from certified organic farms, ensuring the highest quality and nutritional value for your events.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {/* Feature Card 1 */}
-              <div className="rounded-2xl p-8 border border-green-100 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="rounded-2xl p-4 md:p-8 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center mb-4">
                   <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mr-4">
                     <Shield className="w-6 h-6 text-green-600" />
                   </div>
                   <h3 className="text-xl font-bold text-white">100% Certified Organic</h3>
                 </div>
-                <p className="text-white leading-relaxed">
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
                   All products are certified organic by recognized authorities
                 </p>
               </div>
 
               {/* Feature Card 2 */}
-              <div className="rounded-2xl p-8 border border-green-100 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="rounded-2xl p-4 md:p-8 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center mb-4">
                   <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mr-4">
                     <Heart className="w-6 h-6 text-green-600" />
                   </div>
                   <h3 className="text-xl font-bold text-white">Health & Wellness</h3>
                 </div>
-                <p className="text-white leading-relaxed">
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
                   Nutrient-rich foods for a healthier lifestyle
                 </p>
               </div>
@@ -266,52 +266,91 @@ export default function OrganicFoodPage() {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-16 px-4">
+        <section className="py-8 md:py-16 px-4">
           <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Why Choose Organic?</h2>
-              <p className="text-lg text-white max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg">Why Choose Organic?</h2>
+              <p className="text-base md:text-lg text-white max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg">
                 Experience the difference that organic food brings to your events
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {/* Benefit 1 */}
-              <div className="rounded-2xl p-8 border border-green-100 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="rounded-2xl p-4 md:p-8 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center mb-4">
                   <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mr-4">
                     <Shield className="w-6 h-6 text-green-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">No Chemicals</h3>
+                  <h3 className="text-xl font-bold text-white drop-shadow-md">No Chemicals</h3>
                 </div>
-                <p className="text-white leading-relaxed">
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
                   Free from harmful pesticides and synthetic fertilizers
                 </p>
               </div>
 
               {/* Benefit 2 */}
-              <div className="rounded-2xl p-8 border border-green-100 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="rounded-2xl p-4 md:p-8 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center mb-4">
                   <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mr-4">
                     <Heart className="w-6 h-6 text-green-600" />
                   </div>
                   <h3 className="text-xl font-bold text-white">Better Nutrition</h3>
                 </div>
-                <p className="text-white leading-relaxed">
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
                   Higher levels of vitamins, minerals, and antioxidants
                 </p>
               </div>
 
               {/* Benefit 3 */}
-              <div className="rounded-2xl p-8 border border-green-100 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="rounded-2xl p-4 md:p-8 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center mb-4">
                   <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mr-4">
                     <Shield className="w-6 h-6 text-green-600" />
                   </div>
                   <h3 className="text-xl font-bold text-white">Certified Quality</h3>
                 </div>
-                <p className="text-white leading-relaxed">
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
                   Rigorous certification standards ensure premium quality
+                </p>
+              </div>
+
+              {/* Benefit 4 */}
+              <div className="rounded-2xl p-4 md:p-8 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mr-4">
+                    <Heart className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Pure Taste</h3>
+                </div>
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
+                  Authentic flavors that showcase nature's true essence
+                </p>
+              </div>
+
+              {/* Benefit 5 */}
+              <div className="rounded-2xl p-4 md:p-8 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mr-4">
+                    <Shield className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Eco-Friendly</h3>
+                </div>
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
+                  Sustainable farming practices protect our environment
+                </p>
+              </div>
+
+              {/* Benefit 6 */}
+              <div className="rounded-2xl p-4 md:p-8 bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full mr-4">
+                    <Heart className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Health Benefits</h3>
+                </div>
+                <p className="text-white/90 leading-relaxed drop-shadow-sm">
+                  Supports immune system and overall well-being
                 </p>
               </div>
             </div>

@@ -64,10 +64,10 @@ const values = [
         color: "from-amber-500 to-orange-600"
     },
     {
-        icon: <Gem className="w-12 h-12 text-purple-600" />,
+        icon: <Gem className="w-12 h-12 text-blue-600" />,
         title: "Luxury Experience",
         description: "We craft sophisticated atmospheres and deliver impeccable service that transforms every event into an unforgettable celebration.",
-        color: "from-purple-500 to-indigo-600"
+        color: "from-blue-500 to-indigo-600"
     },
     {
         icon: <Heart className="w-12 h-12 text-red-500" />,
@@ -114,22 +114,22 @@ export default function AboutPage() {
         <TopNavbar />
         <main className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+            <section className="relative py-20 md:py-32 overflow-hidden bg-motorcycle-dark">
                 {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-20">
-                    <div className="w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
+                <div className="absolute inset-0 opacity-10">
+                    <div className="w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(255,211,45,0.1)_1px,transparent_0)] bg-[length:20px_20px]"></div>
                 </div>
                 
-                <div className="container relative z-10">
+                <div className="container-professional relative z-10">
                     <div className="text-center text-white">
-                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/20">
-                            <Sparkles className="w-5 h-5 text-yellow-400" />
+                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/20 card-professional group hover:scale-105 transition-all duration-500">
+                            <Sparkles className="w-5 h-5 text-yellow-400 group-hover:scale-110 transition-transform duration-300" />
                             <span className="text-sm font-medium">Excellence Since 2008</span>
                         </div>
                         
-                        <h1 className="text-5xl md:text-7xl font-bold font-serif mb-6 bg-gradient-to-r from-white via-blue-100 to-indigo-200 bg-clip-text text-transparent">
+                        <h1 className="text-5xl md:text-7xl font-bold font-serif mb-6 bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent">
                             Crafting Extraordinary
-                            <span className="block text-yellow-400">Experiences</span>
+                            <span className="block bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent">Experiences</span>
                         </h1>
                         
                         <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-12">
@@ -137,13 +137,13 @@ export default function AboutPage() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white border-0 px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">
+                            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white border-0 px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 rounded-2xl">
                                 <Link href="/booking">
                                     Start Your Journey
                                     <ArrowRight className="w-5 h-5 ml-2" />
                                 </Link>
                             </Button>
-                            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-4 text-lg font-semibold">
+                            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-4 text-lg font-semibold rounded-2xl">
                                 <Link href="/gallery">View Our Work</Link>
                             </Button>
                         </div>
@@ -156,18 +156,18 @@ export default function AboutPage() {
             </section>
 
             {/* Stats Section */}
-            <section className="py-20 bg-white">
-                <div className="container">
+            <section className="py-20 bg-motorcycle-dark">
+                <div className="container-professional">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {stats.map((stat, index) => (
                             <div key={index} className="text-center group">
-                                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300">
-                                    <div className="text-white">
+                                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300 card-professional">
+                                    <div className="text-white w-6 h-6">
                                         {stat.icon}
                                     </div>
                                 </div>
-                                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                                <div className="text-gray-600 font-medium">{stat.label}</div>
+                                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
+                                <div className="text-white font-medium">{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -175,17 +175,17 @@ export default function AboutPage() {
             </section>
 
             {/* Team Section */}
-            <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-                <div className="container">
+            <section className="py-20 bg-motorcycle-dark">
+                <div className="container-professional">
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-blue-100 rounded-full px-4 py-2 mb-6">
-                            <Users className="w-4 h-4 text-blue-600" />
-                            <span className="text-sm font-medium text-blue-700">Our Expert Team</span>
+                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20 card-professional group hover:scale-105 transition-all duration-500">
+                            <Users className="w-4 h-4 text-motorcycle-yellow group-hover:scale-110 transition-transform duration-300" />
+                            <span className="text-sm font-medium text-white">Our Expert Team</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6">
-                            Meet Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Master Craftspeople</span>
+                        <h2 className="text-4xl md:text-5xl font-bold font-serif bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent mb-6">
+                            Meet Our <span className="text-gradient">Master Craftspeople</span>
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-xl text-white max-w-3xl mx-auto">
                             The passionate professionals who bring your vision to life with unmatched expertise and dedication.
                         </p>
                     </div>
@@ -195,8 +195,8 @@ export default function AboutPage() {
                             const image = placeholderImages.find(p => p.id === member.placeholderId);
                             if(!image) return null;
                             return (
-                                <Card key={member.name} className="group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                                    <div className="relative h-80 overflow-hidden">
+                                <Card key={member.name} className="group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 card-professional rounded-3xl">
+                                    <div className="relative h-64 overflow-hidden">
                                         <Image
                                             src={image.imageUrl}
                                             alt={member.name}
@@ -206,7 +206,7 @@ export default function AboutPage() {
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                         <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
+                                            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4">
                                                 <div className="flex items-center gap-2 mb-2">
                                                     <Award className="w-4 h-4 text-yellow-500" />
                                                     <span className="text-sm font-semibold text-gray-900">{member.experience}</span>
@@ -222,9 +222,9 @@ export default function AboutPage() {
                                         </div>
                                     </div>
                                     <CardContent className="p-6">
-                                        <h3 className="text-xl font-bold font-serif text-gray-900 mb-2">{member.name}</h3>
-                                        <p className="text-blue-600 font-semibold mb-3">{member.role}</p>
-                                        <p className="text-gray-600 leading-relaxed">{member.bio}</p>
+                                        <h3 className="text-xl font-bold font-serif text-white mb-2">{member.name}</h3>
+                                        <p className="text-motorcycle-yellow font-semibold mb-3">{member.role}</p>
+                                        <p className="text-white leading-relaxed">{member.bio}</p>
                                     </CardContent>
                                 </Card>
                             )
@@ -234,30 +234,30 @@ export default function AboutPage() {
             </section>
 
             {/* Values Section */}
-            <section className="py-20 bg-white">
-                <div className="container">
+            <section className="py-20 bg-motorcycle-dark">
+                <div className="container-professional">
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-green-100 rounded-full px-4 py-2 mb-6">
-                            <Shield className="w-4 h-4 text-green-600" />
-                            <span className="text-sm font-medium text-green-700">Our Core Values</span>
+                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20 card-professional group hover:scale-105 transition-all duration-500">
+                            <Shield className="w-4 h-4 text-motorcycle-yellow group-hover:scale-110 transition-transform duration-300" />
+                            <span className="text-sm font-medium text-white">Our Core Values</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6">
-                            What Sets Us <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">Apart</span>
+                        <h2 className="text-4xl md:text-5xl font-bold font-serif bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent mb-6">
+                            What Sets Us <span className="text-gradient">Apart</span>
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-xl text-white max-w-3xl mx-auto">
                             The principles that guide everything we do, ensuring exceptional experiences every time.
                         </p>
                     </div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                         {values.map((value, index) => (
-                            <Card key={value.title} className="group text-center border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                                <CardContent className="p-8">
-                                    <div className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r ${value.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                            <Card key={value.title} className="group text-center border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 card-professional rounded-3xl">
+                                    <CardContent className="p-3 md:p-6">
+                                    <div className={`inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r ${value.color} rounded-full mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 card-professional`}>
                                         {value.icon}
                                     </div>
-                                    <h3 className="text-xl font-bold font-serif text-gray-900 mb-4">{value.title}</h3>
-                                    <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                                    <h3 className="text-lg md:text-xl font-bold font-serif text-white mb-3 md:mb-4">{value.title}</h3>
+                                    <p className="text-white text-sm md:text-base leading-relaxed">{value.description}</p>
                                 </CardContent>
                             </Card>
                         ))}
@@ -266,44 +266,46 @@ export default function AboutPage() {
             </section>
 
             {/* Testimonials Section */}
-            <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
-                <div className="container">
+            <section className="py-20 bg-motorcycle-dark">
+                <div className="container-professional">
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-indigo-100 rounded-full px-4 py-2 mb-6">
-                            <Quote className="w-4 h-4 text-indigo-600" />
-                            <span className="text-sm font-medium text-indigo-700">Client Testimonials</span>
+                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20 card-professional group hover:scale-105 transition-all duration-500">
+                            <Quote className="w-4 h-4 text-motorcycle-yellow group-hover:scale-110 transition-transform duration-300" />
+                            <span className="text-sm font-medium text-white">Client Testimonials</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-6">
-                            What Our <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Clients Say</span>
+                        <h2 className="text-4xl md:text-5xl font-bold font-serif bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent mb-6">
+                            What Our <span className="text-gradient">Clients Say</span>
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-xl text-white max-w-3xl mx-auto">
                             Don't just take our word for it. Hear from the clients whose dreams we've brought to life.
                         </p>
                     </div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
                         {testimonials.map((testimonial, index) => (
-                            <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                                <CardContent className="p-8">
-                                    <div className="flex items-center gap-2 mb-4">
+                            <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 card-professional rounded-3xl">
+                                    <CardContent className="p-3 md:p-6">
+                                    <div className="flex items-center gap-1 md:gap-2 mb-3 md:mb-4">
                                         {[...Array(testimonial.rating)].map((_, i) => (
-                                            <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                                            <Star key={i} className="w-3 h-3 md:w-5 md:h-5 text-yellow-400 fill-current" />
                                         ))}
                                     </div>
-                                    <blockquote className="text-gray-700 leading-relaxed mb-6 italic">
+                                    <blockquote className="text-white text-sm md:text-base leading-relaxed mb-4 md:mb-6 italic">
                                         "{testimonial.content}"
                                     </blockquote>
                                     <div className="flex items-center gap-4">
-                                        <Image
-                                            src={testimonial.image}
-                                            alt={testimonial.name}
-                                            width={50}
-                                            height={50}
-                                            className="rounded-full object-cover"
-                                        />
+                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden flex-shrink-0">
+                                            <Image
+                                                src={testimonial.image}
+                                                alt={testimonial.name}
+                                                width={40}
+                                                height={40}
+                                                className="w-full h-full object-cover object-center"
+                                            />
+                                        </div>
                                         <div>
-                                            <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                                            <div className="text-sm text-gray-600">{testimonial.role}</div>
+                                            <div className="font-semibold text-white text-sm md:text-base">{testimonial.name}</div>
+                                            <div className="text-xs md:text-sm text-white">{testimonial.role}</div>
                                         </div>
                                     </div>
                                 </CardContent>
@@ -314,30 +316,30 @@ export default function AboutPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+            <section className="py-20 bg-motorcycle-dark relative overflow-hidden">
                 {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-20">
-                    <div className="w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
+                <div className="absolute inset-0 opacity-10">
+                    <div className="w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(255,211,45,0.1)_1px,transparent_0)] bg-[length:20px_20px]"></div>
                 </div>
                 
-                <div className="container relative z-10">
+                <div className="container-professional relative z-10">
                     <div className="text-center text-white max-w-4xl mx-auto">
-                        <h2 className="text-4xl md:text-6xl font-bold font-serif mb-6 bg-gradient-to-r from-white via-blue-100 to-indigo-200 bg-clip-text text-transparent">
+                        <h2 className="text-4xl md:text-6xl font-bold font-serif mb-6 bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent">
                             Ready to Create Something
-                            <span className="block text-yellow-400">Extraordinary?</span>
+                            <span className="block bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent">Extraordinary?</span>
                         </h2>
-                        <p className="text-xl text-blue-100 mb-12 leading-relaxed">
+                        <p className="text-xl text-white mb-12 leading-relaxed">
                             Let's transform your vision into an unforgettable experience. Our team is ready to bring your dreams to life with unmatched expertise and passion.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                            <Button asChild size="lg" className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white border-0 px-10 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                            <Button asChild size="lg" className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white border-0 px-10 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 rounded-2xl">
                                 <Link href="/booking">
                                     <Calendar className="w-5 h-5 mr-2" />
                                     Book Your Event
                                 </Link>
                             </Button>
-                            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-10 py-4 text-lg font-semibold">
+                            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-10 py-4 text-lg font-semibold rounded-2xl">
                                 <Link href="/contact">
                                     <Zap className="w-5 h-5 mr-2" />
                                     Get In Touch
@@ -345,17 +347,17 @@ export default function AboutPage() {
                             </Button>
                         </div>
                         
-                        <div className="mt-12 flex items-center justify-center gap-8 text-blue-200">
+                        <div className="mt-12 flex items-center justify-center gap-8 text-white">
                             <div className="flex items-center gap-2">
-                                <CheckCircle className="w-5 h-5" />
+                                <CheckCircle className="w-5 h-5 text-motorcycle-yellow" />
                                 <span>Free Consultation</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <CheckCircle className="w-5 h-5" />
+                                <CheckCircle className="w-5 h-5 text-motorcycle-yellow" />
                                 <span>Custom Planning</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <CheckCircle className="w-5 h-5" />
+                                <CheckCircle className="w-5 h-5 text-motorcycle-yellow" />
                                 <span>24/7 Support</span>
                             </div>
                         </div>

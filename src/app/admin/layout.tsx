@@ -25,7 +25,7 @@ export default function AdminLayout({
 
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-gray-50 flex">
+      <div className="min-h-screen bg-motorcycle-dark flex">
         {/* Mobile sidebar overlay */}
         {sidebarOpen && (
           <div 
@@ -49,16 +49,16 @@ export default function AdminLayout({
         {/* Main content area */}
         <div className="flex-1 flex flex-col min-w-0">
           {/* Mobile header */}
-          <div className="lg:hidden bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between">
+          <div className="lg:hidden bg-motorcycle-card shadow-sm border-b border-motorcycle-yellow px-4 py-3 flex items-center justify-between card-professional">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setSidebarOpen(true)}
-              className="text-gray-600"
+              className="text-motorcycle-white hover:bg-motorcycle-yellow hover:text-black"
             >
               <Menu className="h-6 w-6" />
             </Button>
-            <h1 className="text-lg font-semibold text-gray-900">Admin Panel</h1>
+            <h1 className="text-lg font-semibold text-motorcycle-white">Admin Panel</h1>
             <div className="w-10" /> {/* Spacer for centering */}
           </div>
 

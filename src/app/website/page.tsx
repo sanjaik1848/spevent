@@ -17,7 +17,7 @@ export default async function WebsitePage() {
            <>
              <Hero content={content?.hero} />
              <TopNavbar />
-             <main className="bg-gray-50">
+             <main className="bg-motorcycle-dark min-h-screen">
         <Promo content={content?.promo} />
         <ImageSlideshow />
         <Services />

@@ -57,7 +57,7 @@ export default function ImageSlideshow() {
             src={currentImage.imageUrl}
             alt={currentImage.description}
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
             data-ai-hint={currentImage.imageHint}
           />
@@ -66,13 +66,13 @@ export default function ImageSlideshow() {
 
        {/* Navigation Arrows */}
       <div className="absolute inset-y-0 left-0 flex items-center z-10">
-        <button onClick={prevSlide} className="p-2 m-4 bg-black/30 rounded-full text-white hover:bg-black/50 transition-colors">
-          <ChevronLeft className="w-8 h-8" />
+        <button onClick={prevSlide} className="p-2 m-4 bg-motorcycle-card/50 backdrop-blur-sm border border-motorcycle-yellow/30 rounded-full text-white hover:bg-motorcycle-yellow/20 hover:scale-110 transition-all duration-300 group">
+          <ChevronLeft className="w-8 h-8 group-hover:text-motorcycle-yellow transition-colors duration-300" />
         </button>
       </div>
       <div className="absolute inset-y-0 right-0 flex items-center z-10">
-        <button onClick={nextSlide} className="p-2 m-4 bg-black/30 rounded-full text-white hover:bg-black/50 transition-colors">
-          <ChevronRight className="w-8 h-8" />
+        <button onClick={nextSlide} className="p-2 m-4 bg-motorcycle-card/50 backdrop-blur-sm border border-motorcycle-yellow/30 rounded-full text-white hover:bg-motorcycle-yellow/20 hover:scale-110 transition-all duration-300 group">
+          <ChevronRight className="w-8 h-8 group-hover:text-motorcycle-yellow transition-colors duration-300" />
         </button>
       </div>
 
@@ -82,7 +82,7 @@ export default function ImageSlideshow() {
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`w-3 h-3 rounded-full transition-colors ${i === index ? 'bg-primary' : 'bg-white/50'}`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${i === index ? 'bg-motorcycle-yellow shadow-lg shadow-motorcycle-yellow/50' : 'bg-white/50 hover:bg-white/70'}`}
           />
         ))}
       </div>

@@ -13,13 +13,13 @@ const galleryCategories = [
 
 export default function Gallery() {
   return (
-    <section className="section-padding bg-gradient-to-br from-blue-50 to-indigo-50/30">
+    <section className="section-padding bg-motorcycle-dark">
       <div className="container-professional">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-gray-800 mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-motorcycle-white mb-6">
             Our Event <span className="text-gradient">Portfolio</span>
           </h2>
-          <p className="max-w-3xl mx-auto text-lg sm:text-xl text-gray-600 leading-relaxed mb-8">
+          <p className="max-w-3xl mx-auto text-lg sm:text-xl text-motorcycle-white/80 leading-relaxed mb-8">
             Explore our diverse portfolio of extraordinary events. Each category showcases our expertise in creating unforgettable experiences.
           </p>
         </div>
@@ -31,13 +31,13 @@ export default function Gallery() {
             
             return (
               <Link key={cat.id} href={`/gallery/${cat.id}`} className="group">
-                <div className="relative overflow-hidden rounded-3xl shadow-professional hover:shadow-professional-lg transition-all duration-500 bg-white">
+                <div className="relative overflow-hidden rounded-3xl shadow-professional hover:shadow-professional-lg transition-all duration-500 bg-motorcycle-card card-professional border border-motorcycle-yellow">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image 
                         src={image.imageUrl} 
                         alt={image.description}
                         fill
-                        className="object-cover transform group-hover:scale-110 transition-all duration-500"
+                        className="object-cover object-center transform group-hover:scale-110 transition-all duration-500"
                         data-ai-hint={image.imageHint}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-center pb-8">
@@ -48,22 +48,22 @@ export default function Gallery() {
                         <p className="text-white/90 text-sm mb-4 max-w-xs">
                           {cat.description}
                         </p>
-                        <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-indigo-400 mx-auto rounded-full"></div>
+                        <div className="w-16 h-1 bg-gradient-to-r from-motorcycle-yellow to-orange-400 mx-auto rounded-full"></div>
                       </div>
                     </div>
                   </div>
                   
                   {/* Content Info */}
                   <div className="p-3 md:p-6">
-                    <h3 className="text-sm md:text-xl font-serif font-semibold text-gray-800 mb-1 md:mb-2 group-hover:text-gradient transition-colors duration-300">
+                    <h3 className="text-sm md:text-xl font-serif font-semibold text-motorcycle-white mb-1 md:mb-2 group-hover:text-gradient transition-colors duration-300">
                       {cat.name}
                     </h3>
-                    <p className="text-gray-600 text-xs md:text-sm mb-2 md:mb-4">
+                    <p className="text-motorcycle-white/70 text-xs md:text-sm mb-2 md:mb-4">
                       {cat.description}
                     </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs md:text-sm text-gray-500">View Gallery</span>
-                      <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                      <span className="text-xs md:text-sm text-motorcycle-white/60">View Gallery</span>
+                      <div className="w-2 h-2 bg-gradient-to-r from-motorcycle-yellow to-orange-400 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
                     </div>
                   </div>
                 </div>

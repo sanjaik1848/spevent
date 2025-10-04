@@ -44,34 +44,37 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-secondary text-foreground">
-      <div className="container">
+    <section id="testimonials" className="py-16 md:py-24 bg-motorcycle-dark text-white">
+      <div className="container-professional">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary">
-            Words From Our Clients
+          <h2 className="text-3xl md:text-4xl font-motorcycle-heading font-bold bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent animate-fade-in">
+            What Our <span className="text-gradient">Clients Say</span>
           </h2>
+          <p className="text-lg text-white mt-4 max-w-2xl mx-auto animate-fade-in">
+            Don't just take our word for it. Hear from the clients whose dreams we've brought to life.
+          </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {testimonials.map((testimonial, index) => {
               const image = placeholderImages.find(p => p.id === testimonial.placeholderId);
               if(!image) return null;
 
               return (
-                <div key={index} className="p-4 h-full">
-                  <Card className="h-full flex flex-col justify-between rounded-lg shadow-lg bg-background border-border hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                    <CardContent className="flex flex-col p-8 text-center">
-                       <div className="flex justify-center mb-4 text-yellow-400">
-                          {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                <div key={index} className="p-2 md:p-4 h-full group">
+                  <Card className="h-full flex flex-col justify-between rounded-3xl shadow-lg bg-motorcycle-card border-motorcycle-yellow/30 hover:shadow-2xl hover:-translate-y-4 hover:scale-105 transition-all duration-500 card-professional">
+                    <CardContent className="flex flex-col p-3 md:p-6 text-center">
+                       <div className="flex justify-center mb-3 md:mb-4 text-motorcycle-yellow group-hover:animate-pulse">
+                          {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 md:w-5 md:h-5 fill-current group-hover:scale-110 transition-transform duration-300" style={{ animationDelay: `${i * 100}ms` }} />)}
                        </div>
-                       <p className="text-muted-foreground flex-grow text-lg italic">"{testimonial.quote}"</p>
-                      <div className="mt-8 flex items-center flex-col gap-4">
-                         <Avatar className="h-24 w-24 border-4 border-primary/50">
+                       <p className="text-white flex-grow text-sm md:text-lg italic animate-fade-in">"{testimonial.quote}"</p>
+                      <div className="mt-4 md:mt-8 flex items-center flex-col gap-2 md:gap-4">
+                         <Avatar className="h-12 w-12 md:h-16 md:w-16 border-2 md:border-4 border-motorcycle-yellow/50 group-hover:border-motorcycle-yellow group-hover:scale-110 transition-all duration-300 rounded-full overflow-hidden">
                            <AvatarImage src={image.imageUrl} alt={image.description} data-ai-hint={image.imageHint} />
-                           <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                           <AvatarFallback className="bg-motorcycle-yellow text-black text-sm md:text-base">{testimonial.name.charAt(0)}</AvatarFallback>
                          </Avatar>
                         <div>
-                          <p className="font-semibold text-xl font-serif text-foreground">{testimonial.name}</p>
-                          <p className="text-muted-foreground">{testimonial.role}</p>
+                          <p className="font-semibold text-sm md:text-xl font-motorcycle-heading text-white group-hover:text-gradient transition-colors duration-300">{testimonial.name}</p>
+                          <p className="text-white text-xs md:text-base group-hover:text-white transition-colors duration-300">{testimonial.role}</p>
                         </div>
                       </div>
                     </CardContent>

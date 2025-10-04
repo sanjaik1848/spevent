@@ -82,8 +82,8 @@ export default async function ServicesPage() {
                 </section>
                 
                 <section className="text-center py-16">
-                    <h1 className="text-4xl md:text-5xl font-bold font-serif text-primary mb-4">{content.services.title}</h1>
-                    <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
+                    <h1 className="text-4xl md:text-5xl font-bold font-serif bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent mb-4">{content.services.title}</h1>
+                    <p className="max-w-3xl mx-auto text-lg text-white">
                         {content.services.paragraph}
                     </p>
                 </section>
@@ -101,14 +101,14 @@ export default async function ServicesPage() {
                                 />
                             </div>
                             <div className={`${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                                <h2 className="text-3xl font-serif font-bold text-foreground mb-4">{service.title}</h2>
-                                <p className="text-muted-foreground mb-6">{service.description}</p>
-                                <h3 className="font-semibold text-foreground mb-4">What's Included:</h3>
+                                <h2 className="text-3xl font-serif font-bold bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent mb-4">{service.title}</h2>
+                                <p className="text-white mb-6">{service.description}</p>
+                                <h3 className="font-semibold text-white mb-4">What's Included:</h3>
                                 <ul className="space-y-3">
                                     {service.features.map(feature => (
                                         <li key={feature} className="flex items-center gap-3">
-                                            <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                                            <span className="text-muted-foreground">{feature}</span>
+                                            <CheckCircle className="w-5 h-5 text-motorcycle-yellow flex-shrink-0" />
+                                            <span className="text-white">{feature}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -118,8 +118,8 @@ export default async function ServicesPage() {
                 </div>
 
                 <section className="text-center py-20 mt-16 bg-secondary rounded-lg">
-                    <h2 className="text-3xl font-bold font-serif text-foreground mb-4">Ready to Create Your Unforgettable Event?</h2>
-                    <p className="max-w-2xl mx-auto text-muted-foreground mb-8">
+                    <h2 className="text-3xl font-bold font-serif bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent mb-4">Ready to Create Your Unforgettable Event?</h2>
+                    <p className="max-w-2xl mx-auto text-white mb-8">
                         Let's discuss your vision. Contact us today to schedule a complimentary consultation with one of our expert planners.
                     </p>
                     <Button asChild size="lg">

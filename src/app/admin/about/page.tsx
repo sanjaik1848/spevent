@@ -407,7 +407,7 @@ export default function AboutAdminPage() {
                     <Input
                       value={aboutSettings.heroBackground}
                       onChange={(e) => setAboutSettings(prev => ({ ...prev, heroBackground: e.target.value }))}
-                      placeholder="https://images.unsplash.com/photo-..."
+                      placeholder="Image URL"
                     />
                     <div className="flex gap-2 mt-2">
                       <Button
@@ -477,7 +477,7 @@ export default function AboutAdminPage() {
                     <Input
                       value={aboutSettings.heroTitle}
                       onChange={(e) => setAboutSettings(prev => ({ ...prev, heroTitle: e.target.value }))}
-                      placeholder="Crafting Extraordinary"
+                      placeholder="Your Title"
                     />
                   </div>
                   <div>
@@ -485,7 +485,7 @@ export default function AboutAdminPage() {
                     <Input
                       value={aboutSettings.heroSubtitle}
                       onChange={(e) => setAboutSettings(prev => ({ ...prev, heroSubtitle: e.target.value }))}
-                      placeholder="Experiences"
+                      placeholder="Subtitle"
                     />
                   </div>
                   <div>
@@ -494,7 +494,7 @@ export default function AboutAdminPage() {
                       value={aboutSettings.heroDescription}
                       onChange={(e) => setAboutSettings(prev => ({ ...prev, heroDescription: e.target.value }))}
                       rows={3}
-                      placeholder="Where culinary artistry meets unparalleled service..."
+                      placeholder="Description..."
                     />
                   </div>
                   <div>
@@ -502,7 +502,7 @@ export default function AboutAdminPage() {
                     <Input
                       value={aboutSettings.heroButtonText}
                       onChange={(e) => setAboutSettings(prev => ({ ...prev, heroButtonText: e.target.value }))}
-                      placeholder="Start Your Journey"
+                      placeholder="Button Text"
                     />
                   </div>
                   <div>
@@ -510,7 +510,7 @@ export default function AboutAdminPage() {
                     <Input
                       value={aboutSettings.heroButtonLink}
                       onChange={(e) => setAboutSettings(prev => ({ ...prev, heroButtonLink: e.target.value }))}
-                      placeholder="/booking"
+                      placeholder="/link"
                     />
                   </div>
                 </CardContent>
@@ -541,7 +541,7 @@ export default function AboutAdminPage() {
                       <Input
                         value={editingTeam?.name || ""}
                         onChange={(e) => setEditingTeam(prev => ({ ...prev!, name: e.target.value }))}
-                        placeholder="Chef Rohan Kapoor"
+                        placeholder="Name"
                       />
                     </div>
                     <div>
@@ -549,7 +549,7 @@ export default function AboutAdminPage() {
                       <Input
                         value={editingTeam?.role || ""}
                         onChange={(e) => setEditingTeam(prev => ({ ...prev!, role: e.target.value }))}
-                        placeholder="Executive Chef & Culinary Director"
+                        placeholder="Role"
                       />
                     </div>
                     <div>
@@ -558,7 +558,7 @@ export default function AboutAdminPage() {
                         value={editingTeam?.bio || ""}
                         onChange={(e) => setEditingTeam(prev => ({ ...prev!, bio: e.target.value }))}
                         rows={3}
-                        placeholder="Award-winning chef with 15+ years of experience..."
+                        placeholder="Bio..."
                       />
                     </div>
                     <div>
@@ -566,7 +566,7 @@ export default function AboutAdminPage() {
                       <Input
                         value={editingTeam?.experience || ""}
                         onChange={(e) => setEditingTeam(prev => ({ ...prev!, experience: e.target.value }))}
-                        placeholder="15+ Years"
+                        placeholder="Experience"
                       />
                     </div>
                     <div>
@@ -576,7 +576,7 @@ export default function AboutAdminPage() {
                           <Input
                             value={newAchievement}
                             onChange={(e) => setNewAchievement(e.target.value)}
-                            placeholder="Add achievement"
+                            placeholder="Achievement"
                           />
                           <Button
                             size="sm"

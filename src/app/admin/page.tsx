@@ -57,21 +57,21 @@ const quickActions = [
 
 export default function AdminDashboard() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-motorcycle-dark">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b">
+      <div className="bg-motorcycle-card shadow-sm border-b border-motorcycle-yellow card-professional">
         <div className="px-6 py-6">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-              <p className="text-gray-600 mt-1">Welcome back! Here's what's happening with your studio.</p>
+              <h1 className="text-3xl font-bold text-motorcycle-white">Dashboard</h1>
+              <p className="text-motorcycle-white/80 mt-1">Welcome back! Here's what's happening with your studio.</p>
             </div>
             <div className="flex items-center space-x-4">
-              <Badge variant="outline" className="flex items-center gap-2">
+              <Badge variant="outline" className="flex items-center gap-2 border-motorcycle-yellow text-motorcycle-white">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                 Live
               </Badge>
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+              <Button className="btn-primary">
                 <Settings className="w-4 h-4 mr-2" />
                 Settings
               </Button>
@@ -83,10 +83,10 @@ export default function AdminDashboard() {
       <div className="px-6 py-8">
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-gradient-to-br from-blue-500 to-blue-600 text-white border-0">
+          <Card className="bg-gradient-to-br from-blue-500 to-blue-600 text-white border-0 card-professional group hover:scale-105 transition-all duration-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-blue-100">Total Bookings</CardTitle>
-              <Calendar className="w-8 h-8 text-blue-200" />
+              <Calendar className="w-8 h-8 text-blue-200 group-hover:scale-110 transition-transform duration-300" />
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold">{mockStats.totalBookings}</div>
@@ -94,10 +94,10 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-green-500 to-green-600 text-white border-0">
+          <Card className="bg-gradient-to-br from-green-500 to-green-600 text-white border-0 card-professional group hover:scale-105 transition-all duration-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-green-100">Revenue</CardTitle>
-              <DollarSign className="w-8 h-8 text-green-200" />
+              <DollarSign className="w-8 h-8 text-green-200 group-hover:scale-110 transition-transform duration-300" />
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold">${mockStats.totalRevenue.toLocaleString()}</div>
@@ -105,10 +105,10 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-500 to-purple-600 text-white border-0">
+          <Card className="bg-gradient-to-br from-purple-500 to-purple-600 text-white border-0 card-professional group hover:scale-105 transition-all duration-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-purple-100">Gallery Items</CardTitle>
-              <Camera className="w-8 h-8 text-purple-200" />
+              <Camera className="w-8 h-8 text-purple-200 group-hover:scale-110 transition-transform duration-300" />
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold">{mockStats.galleryItems}</div>
@@ -116,10 +116,10 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-orange-500 to-orange-600 text-white border-0">
+          <Card className="bg-gradient-to-br from-orange-500 to-orange-600 text-white border-0 card-professional group hover:scale-105 transition-all duration-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-orange-100">Menu Items</CardTitle>
-              <Utensils className="w-8 h-8 text-orange-200" />
+              <Utensils className="w-8 h-8 text-orange-200 group-hover:scale-110 transition-transform duration-300" />
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold">{mockStats.menuItems}</div>
@@ -130,10 +130,10 @@ export default function AdminDashboard() {
 
         {/* Additional Stats Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          <Card className="bg-gradient-to-br from-indigo-500 to-indigo-600 text-white border-0">
+          <Card className="bg-gradient-to-br from-indigo-500 to-indigo-600 text-white border-0 card-professional group hover:scale-105 transition-all duration-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-indigo-100">Slider Images</CardTitle>
-              <Camera className="w-8 h-8 text-indigo-200" />
+              <Camera className="w-8 h-8 text-indigo-200 group-hover:scale-110 transition-transform duration-300" />
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold">{mockStats.sliderItems}</div>
@@ -141,10 +141,10 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-teal-500 to-teal-600 text-white border-0">
+          <Card className="bg-gradient-to-br from-teal-500 to-teal-600 text-white border-0 card-professional group hover:scale-105 transition-all duration-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-teal-100">Active Users</CardTitle>
-              <Users className="w-8 h-8 text-teal-200" />
+              <Users className="w-8 h-8 text-teal-200 group-hover:scale-110 transition-transform duration-300" />
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold">{mockStats.activeUsers}</div>
@@ -152,10 +152,10 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-pink-500 to-pink-600 text-white border-0">
+          <Card className="bg-gradient-to-br from-pink-500 to-pink-600 text-white border-0 card-professional group hover:scale-105 transition-all duration-500">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-pink-100">Growth Rate</CardTitle>
-              <TrendingUp className="w-8 h-8 text-pink-200" />
+              <TrendingUp className="w-8 h-8 text-pink-200 group-hover:scale-110 transition-transform duration-300" />
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold">+{mockStats.monthlyGrowth}%</div>
@@ -167,11 +167,11 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Recent Bookings */}
           <div className="lg:col-span-2">
-            <Card className="shadow-lg">
+            <Card className="shadow-lg card-professional border border-motorcycle-yellow">
               <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle className="text-xl font-semibold">Recent Bookings</CardTitle>
+                <CardTitle className="text-xl font-semibold text-motorcycle-white">Recent Bookings</CardTitle>
                 <Link href="/admin/bookings">
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="border-motorcycle-yellow text-motorcycle-white hover:bg-motorcycle-yellow hover:text-black">
                     View All
                   </Button>
                 </Link>
@@ -179,33 +179,33 @@ export default function AdminDashboard() {
               <CardContent>
                 <div className="space-y-4">
                   {recentBookings.map((booking) => (
-                    <div key={booking.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <div key={booking.id} className="flex items-center justify-between p-4 bg-motorcycle-card rounded-lg hover:bg-motorcycle-card/80 transition-colors border border-motorcycle-yellow/30">
                       <div className="flex items-center space-x-4">
-                        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-semibold">
+                        <div className="w-10 h-10 bg-gradient-to-br from-motorcycle-yellow to-orange-500 rounded-full flex items-center justify-center text-black font-semibold">
                           {booking.client.split(' ').map(n => n[0]).join('')}
                         </div>
                         <div>
-                          <p className="font-medium text-gray-900">{booking.client}</p>
-                          <p className="text-sm text-gray-600">{booking.event}</p>
+                          <p className="font-medium text-motorcycle-white">{booking.client}</p>
+                          <p className="text-sm text-motorcycle-white/70">{booking.event}</p>
                         </div>
                       </div>
                       <div className="flex items-center space-x-4">
                         <div className="text-right">
-                          <p className="font-semibold text-gray-900">${booking.amount}</p>
-                          <p className="text-sm text-gray-600">{booking.date}</p>
+                          <p className="font-semibold text-motorcycle-white">${booking.amount}</p>
+                          <p className="text-sm text-motorcycle-white/70">{booking.date}</p>
                         </div>
                         <Badge 
                           variant={booking.status === 'confirmed' ? 'default' : 
                                   booking.status === 'pending' ? 'secondary' : 'outline'}
-                          className="capitalize"
+                          className="capitalize border-motorcycle-yellow text-motorcycle-white"
                         >
                           {booking.status}
                         </Badge>
                         <div className="flex space-x-2">
-                          <Button size="sm" variant="ghost">
+                          <Button size="sm" variant="ghost" className="text-motorcycle-white hover:bg-motorcycle-yellow hover:text-black">
                             <Eye className="w-4 h-4" />
                           </Button>
-                          <Button size="sm" variant="ghost">
+                          <Button size="sm" variant="ghost" className="text-motorcycle-white hover:bg-motorcycle-yellow hover:text-black">
                             <Edit className="w-4 h-4" />
                           </Button>
                         </div>
@@ -220,16 +220,16 @@ export default function AdminDashboard() {
           {/* Quick Actions & Stats */}
           <div className="space-y-6">
             {/* Quick Actions */}
-            <Card className="shadow-lg">
+            <Card className="shadow-lg card-professional border border-motorcycle-yellow">
               <CardHeader>
-                <CardTitle className="text-lg font-semibold">Quick Actions</CardTitle>
+                <CardTitle className="text-lg font-semibold text-motorcycle-white">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   {quickActions.map((action, index) => (
                     <Link key={index} href={action.href}>
-                      <Button variant="outline" className="w-full justify-start h-12 hover:bg-gray-50">
-                        {action.icon}
+                      <Button variant="outline" className="w-full justify-start h-12 hover:bg-motorcycle-yellow hover:text-black border-motorcycle-yellow text-motorcycle-white transition-all duration-300 group">
+                        <span className="group-hover:scale-110 transition-transform duration-300">{action.icon}</span>
                         <span className="ml-3">{action.title}</span>
                       </Button>
                     </Link>
@@ -239,40 +239,40 @@ export default function AdminDashboard() {
             </Card>
 
             {/* Performance Stats */}
-            <Card className="shadow-lg">
+            <Card className="shadow-lg card-professional border border-motorcycle-yellow">
               <CardHeader>
-                <CardTitle className="text-lg font-semibold">Performance</CardTitle>
+                <CardTitle className="text-lg font-semibold text-motorcycle-white">Performance</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                        <TrendingUp className="w-4 h-4 text-green-600" />
+                      <div className="w-8 h-8 bg-motorcycle-yellow rounded-full flex items-center justify-center group hover:scale-110 transition-transform duration-300">
+                        <TrendingUp className="w-4 h-4 text-black" />
                       </div>
-                      <span className="text-sm font-medium">Conversion Rate</span>
+                      <span className="text-sm font-medium text-motorcycle-white">Conversion Rate</span>
                     </div>
-                    <span className="text-lg font-bold text-green-600">+12.5%</span>
+                    <span className="text-lg font-bold text-motorcycle-yellow">+12.5%</span>
                   </div>
                   
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Users className="w-4 h-4 text-blue-600" />
+                      <div className="w-8 h-8 bg-motorcycle-yellow rounded-full flex items-center justify-center group hover:scale-110 transition-transform duration-300">
+                        <Users className="w-4 h-4 text-black" />
                       </div>
-                      <span className="text-sm font-medium">Active Users</span>
+                      <span className="text-sm font-medium text-motorcycle-white">Active Users</span>
                     </div>
-                    <span className="text-lg font-bold text-blue-600">{mockStats.activeUsers}</span>
+                    <span className="text-lg font-bold text-motorcycle-yellow">{mockStats.activeUsers}</span>
                   </div>
                   
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                        <Clock className="w-4 h-4 text-purple-600" />
+                      <div className="w-8 h-8 bg-motorcycle-yellow rounded-full flex items-center justify-center group hover:scale-110 transition-transform duration-300">
+                        <Clock className="w-4 h-4 text-black" />
                       </div>
-                      <span className="text-sm font-medium">Avg. Response</span>
+                      <span className="text-sm font-medium text-motorcycle-white">Avg. Response</span>
                     </div>
-                    <span className="text-lg font-bold text-purple-600">2.4h</span>
+                    <span className="text-lg font-bold text-motorcycle-yellow">2.4h</span>
                   </div>
                 </div>
               </CardContent>

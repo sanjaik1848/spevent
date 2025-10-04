@@ -82,39 +82,199 @@
     font-family: 'Playfair Display', Georgia, serif;
   }
   
-  /* body, a, button, [role="button"], input, textarea, select {
-    @media (min-width: 1024px) {
-      cursor: none;
-    }
-  } */
+  body {
+    cursor: none; /* Hide default cursor */
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+  }
 }
 
 @layer components {
   /* Professional Button Styles */
   .btn-primary {
-    @apply bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-semibold px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm lg:text-base;
+    background: #FFD32D;
+    color: #000000;
+    font-weight: 700;
+    padding: 0.875rem 2rem;
+    border-radius: 0;
+    border: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 2px 8px rgba(255, 211, 45, 0.3);
+  }
+  .btn-primary:hover {
+    background: #000000;
+    color: #FFD32D;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 211, 45, 0.4);
   }
   
   .btn-secondary {
-    @apply bg-white border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-semibold px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm lg:text-base;
+    background: transparent;
+    border: 2px solid #FFD32D;
+    color: #FFD32D;
+    font-weight: 700;
+    padding: 0.875rem 2rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .btn-secondary:hover {
+    background: #FFD32D;
+    color: #000000;
+    transform: translateY(-2px);
   }
   
-  /* Professional Card Styles */
+  /* Motorcycle Theme Card Styles */
   .card-professional {
-    @apply bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 0;
+    border: 1px solid #FFD32D;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-professional::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 211, 45, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  .card-professional:hover::before {
+    left: 100%;
+  }
+  .card-professional:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 211, 45, 0.3);
+    border-color: #FFD32D;
   }
   
   .card-elevated {
-    @apply bg-white rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 0;
+    border: 2px solid #FFD32D;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease;
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-elevated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 211, 45, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .card-elevated:hover::after {
+    opacity: 1;
+  }
+  .card-elevated:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(255, 211, 45, 0.4);
   }
   
-  /* Professional Text Styles */
+  /* Motorcycle Theme Text Styles */
   .text-gradient {
-    @apply bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent;
+    background: linear-gradient(to right, #FFD32D, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
   }
   
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-purple-500 to-violet-500 bg-clip-text text-transparent;
+    background: linear-gradient(to right, #FFD32D, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Motorcycle Theme Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .font-motorcycle-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .font-motorcycle-body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+  }
+
+  /* Motorcycle Theme Utility Classes */
+  .bg-motorcycle-dark {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  }
+  
+  .bg-motorcycle-card {
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+  }
+  
+  .bg-motorcycle-accent {
+    background: #FFD32D;
+  }
+  
+  .text-motorcycle-white {
+    color: #ffffff;
+  }
+  
+  .text-motorcycle-yellow {
+    color: #FFD32D;
+  }
+  
+  .border-motorcycle-yellow {
+    border-color: #FFD32D;
+  }
+
+  /* Motorcycle Theme Animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scale-on-hover {
+    transition: transform 0.3s ease;
+  }
+  
+  .scale-on-hover:hover {
+    transform: scale(1.05);
+  }
+
+  /* Section Dividers */
+  .section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFD32D, transparent);
+    margin: 3rem 0;
   }
   
   /* Professional Spacing */

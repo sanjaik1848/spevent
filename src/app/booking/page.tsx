@@ -71,9 +71,9 @@ export default function BookingPage() {
   return (
     <>
     <TopNavbar />
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 py-12 px-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-center mb-6 text-primary">Book Your Event</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-motorcycle-dark py-12 px-4">
+      <div className="w-full max-w-2xl bg-motorcycle-card rounded-lg shadow-lg p-8 card-professional border border-motorcycle-yellow">
+        <h1 className="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent">Book Your Event</h1>
 
         {/* Step Indicators */}
         <div className="flex justify-between mb-8">
@@ -81,15 +81,15 @@ export default function BookingPage() {
             <div
               key={i}
               className={`flex-1 text-center text-sm ${
-                i <= step ? "font-bold text-primary" : "text-gray-500"
+                i <= step ? "font-bold text-motorcycle-yellow" : "text-white/60"
               }`}
             >
               {label}
             </div>
           ))}
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-1 mb-8">
-            <div className="bg-primary h-1 rounded-full" style={{ width: `${((step) / (steps.length - 1)) * 100}%` }}></div>
+        <div className="w-full bg-motorcycle-white/20 rounded-full h-1 mb-8">
+            <div className="bg-motorcycle-yellow h-1 rounded-full transition-all duration-500" style={{ width: `${((step) / (steps.length - 1)) * 100}%` }}></div>
         </div>
 
 
@@ -98,29 +98,29 @@ export default function BookingPage() {
           {step === 0 && (
             <div className="space-y-4">
               <div>
-                <Label htmlFor="eventType">Event Type</Label>
+                <Label htmlFor="eventType" className="text-white">Event Type</Label>
                 <select
                   id="eventType"
-                  className="w-full mt-2 p-2 border rounded-lg"
+                  className="w-full mt-2 p-2 border border-motorcycle-yellow rounded-lg bg-motorcycle-card text-white focus:ring-2 focus:ring-motorcycle-yellow"
                   value={formData.eventType}
                   onChange={(e) =>
                     setFormData({ ...formData, eventType: e.target.value })
                   }
                   required
                 >
-                  <option value="">Select</option>
-                  <option value="Wedding">Wedding</option>
-                  <option value="Corporate">Corporate</option>
-                  <option value="Birthday">Birthday</option>
-                  <option value="Concert">Concert</option>
+                  <option value="" className="bg-motorcycle-card text-white">Select</option>
+                  <option value="Wedding" className="bg-motorcycle-card text-white">Wedding</option>
+                  <option value="Corporate" className="bg-motorcycle-card text-white">Corporate</option>
+                  <option value="Birthday" className="bg-motorcycle-card text-white">Birthday</option>
+                  <option value="Concert" className="bg-motorcycle-card text-white">Concert</option>
                 </select>
               </div>
               <div>
-                <Label htmlFor="date">Event Date</Label>
+                <Label htmlFor="date" className="text-white">Event Date</Label>
                 <Input
                   id="date"
                   type="date"
-                  className="w-full mt-2 p-2 border rounded-lg"
+                  className="w-full mt-2 p-2 border border-motorcycle-yellow rounded-lg bg-motorcycle-card text-white focus:ring-2 focus:ring-motorcycle-yellow"
                   value={formData.date}
                   onChange={(e) =>
                     setFormData({ ...formData, date: e.target.value })
@@ -134,12 +134,12 @@ export default function BookingPage() {
           {step === 1 && (
             <div className="space-y-4">
               <div>
-                <Label htmlFor="guests">Number of Guests</Label>
+                <Label htmlFor="guests" className="text-white">Number of Guests</Label>
                 <Input
                   id="guests"
                   type="number"
-                  placeholder="e.g. 150"
-                  className="w-full mt-2 p-2 border rounded-lg"
+                  placeholder="Number"
+                  className="w-full mt-2 p-2 border border-motorcycle-yellow rounded-lg bg-motorcycle-card text-white placeholder:text-white/60 focus:ring-2 focus:ring-motorcycle-yellow"
                   value={formData.guests}
                   onChange={(e) =>
                     setFormData({ ...formData, guests: e.target.value })
@@ -148,12 +148,12 @@ export default function BookingPage() {
                 />
               </div>
               <div>
-                <Label htmlFor="name">Your Name</Label>
+                <Label htmlFor="name" className="text-white">Your Name</Label>
                 <Input
                   id="name"
                   type="text"
-                  placeholder="John Doe"
-                  className="w-full mt-2 p-2 border rounded-lg"
+                  placeholder="Your Name"
+                  className="w-full mt-2 p-2 border border-motorcycle-yellow rounded-lg bg-motorcycle-card text-white placeholder:text-white/60 focus:ring-2 focus:ring-motorcycle-yellow"
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -162,12 +162,12 @@ export default function BookingPage() {
                 />
               </div>
               <div>
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-white">Email</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="you@example.com"
-                  className="w-full mt-2 p-2 border rounded-lg"
+                  placeholder="Your Email"
+                  className="w-full mt-2 p-2 border border-motorcycle-yellow rounded-lg bg-motorcycle-card text-white placeholder:text-white/60 focus:ring-2 focus:ring-motorcycle-yellow"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -180,7 +180,7 @@ export default function BookingPage() {
 
           {step === 2 && (
             <div>
-              <p className="mb-4 font-semibold">Select Additional Services:</p>
+              <p className="mb-4 font-semibold text-motorcycle-white">Select Additional Services:</p>
               <div className="grid grid-cols-2 gap-4">
               {["Photography", "Catering", "Decorations", "Music", "Videography", "Entertainment"].map(
                 (service) => (
@@ -189,8 +189,9 @@ export default function BookingPage() {
                       id={service}
                       checked={formData.services.includes(service)}
                       onCheckedChange={() => toggleService(service)}
+                      className="border-motorcycle-yellow"
                     />
-                    <Label htmlFor={service} className="ml-2">
+                    <Label htmlFor={service} className="ml-2 text-motorcycle-white">
                         {service}
                     </Label>
                   </div>
@@ -201,24 +202,24 @@ export default function BookingPage() {
           )}
 
           {step === 3 && (
-            <div className="space-y-4 text-center p-6 bg-gray-100 rounded-lg">
-              <h2 className="text-2xl font-bold mb-4">Confirm Your Details</h2>
-              <p>
-                <strong>Event:</strong> {formData.eventType} on {formData.date}
+            <div className="space-y-4 text-center p-6 bg-motorcycle-card rounded-lg border border-motorcycle-yellow card-professional">
+              <h2 className="text-2xl font-bold mb-4 text-motorcycle-white">Confirm Your Details</h2>
+              <p className="text-motorcycle-white/90">
+                <strong className="text-motorcycle-yellow">Event:</strong> {formData.eventType} on {formData.date}
               </p>
-              <p>
-                <strong>Guests:</strong> {formData.guests}
+              <p className="text-motorcycle-white/90">
+                <strong className="text-motorcycle-yellow">Guests:</strong> {formData.guests}
               </p>
-              <p>
-                <strong>Name:</strong> {formData.name} ({formData.email})
+              <p className="text-motorcycle-white/90">
+                <strong className="text-motorcycle-yellow">Name:</strong> {formData.name} ({formData.email})
               </p>
-              <p>
-                <strong>Services:</strong>{" "}
+              <p className="text-motorcycle-white/90">
+                <strong className="text-motorcycle-yellow">Services:</strong>{" "}
                 {formData.services.length > 0
                   ? formData.services.join(", ")
                   : "None"}
               </p>
-               <p className="text-sm text-gray-500 pt-4">A team member will be in touch shortly to finalize the details.</p>
+               <p className="text-sm text-motorcycle-white/70 pt-4">A team member will be in touch shortly to finalize the details.</p>
             </div>
           )}
 
