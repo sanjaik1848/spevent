@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import TopNavbar from "@/components/TopNavbar";
 import { useToast } from "@/hooks/use-toast";
+import { motion, AnimatePresence } from "framer-motion";
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/lib/animations";
 
 const steps = ["Event Details", "Guest Info", "Services", "Confirmation"];
 
@@ -72,31 +74,61 @@ export default function BookingPage() {
     <>
     <TopNavbar />
     <div className="min-h-screen flex flex-col items-center justify-center bg-motorcycle-dark py-12 px-4">
-      <div className="w-full max-w-2xl bg-motorcycle-card rounded-lg shadow-lg p-8 card-professional border border-motorcycle-yellow">
-        <h1 className="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent">Book Your Event</h1>
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        className="w-full max-w-2xl bg-motorcycle-card rounded-3xl shadow-professional-lg p-8 card-professional border border-motorcycle-yellow"
+      >
+        <motion.h1 
+          whileHover={{ scale: 1.05 }}
+          className="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent"
+        >
+          Book Your Event
+        </motion.h1>
 
         {/* Step Indicators */}
-        <div className="flex justify-between mb-8">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="flex justify-between mb-8"
+        >
           {steps.map((label, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`flex-1 text-center text-sm ${
+              variants={staggerItem}
+              whileHover={{ scale: 1.1 }}
+              className={`flex-1 text-center text-sm transition-all duration-300 ${
                 i <= step ? "font-bold text-motorcycle-yellow" : "text-white/60"
               }`}
             >
               {label}
-            </div>
+            </motion.div>
           ))}
-        </div>
-        <div className="w-full bg-motorcycle-white/20 rounded-full h-1 mb-8">
-            <div className="bg-motorcycle-yellow h-1 rounded-full transition-all duration-500" style={{ width: `${((step) / (steps.length - 1)) * 100}%` }}></div>
+        </motion.div>
+        <div className="w-full bg-motorcycle-white/20 rounded-full h-1 mb-8 overflow-hidden">
+            <motion.div 
+              className="bg-motorcycle-yellow h-1 rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: `${((step) / (steps.length - 1)) * 100}%` }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            />
         </div>
 
 
         {/* Form Steps */}
         <form onSubmit={handleSubmit} className="space-y-6">
+          <AnimatePresence mode="wait">
           {step === 0 && (
-            <div className="space-y-4">
+            <motion.div 
+              key="step-0"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-4"
+            >
               <div>
                 <Label htmlFor="eventType" className="text-white">Event Type</Label>
                 <select
@@ -128,11 +160,18 @@ export default function BookingPage() {
                   required
                 />
               </div>
-            </div>
+            </motion.div>
           )}
 
           {step === 1 && (
-            <div className="space-y-4">
+            <motion.div 
+              key="step-1"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-4"
+            >
               <div>
                 <Label htmlFor="guests" className="text-white">Number of Guests</Label>
                 <Input
@@ -175,11 +214,17 @@ export default function BookingPage() {
                   required
                 />
               </div>
-            </div>
+            </motion.div>
           )}
 
           {step === 2 && (
-            <div>
+            <motion.div
+              key="step-2"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+            >
               <p className="mb-4 font-semibold text-motorcycle-white">Select Additional Services:</p>
               <div className="grid grid-cols-2 gap-4">
               {["Photography", "Catering", "Decorations", "Music", "Videography", "Entertainment"].map(
@@ -198,11 +243,18 @@ export default function BookingPage() {
                 )
               )}
               </div>
-            </div>
+            </motion.div>
           )}
 
           {step === 3 && (
-            <div className="space-y-4 text-center p-6 bg-motorcycle-card rounded-lg border border-motorcycle-yellow card-professional">
+            <motion.div 
+              key="step-3"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-4 text-center p-6 bg-motorcycle-card rounded-lg border border-motorcycle-yellow card-professional"
+            >
               <h2 className="text-2xl font-bold mb-4 text-motorcycle-white">Confirm Your Details</h2>
               <p className="text-motorcycle-white/90">
                 <strong className="text-motorcycle-yellow">Event:</strong> {formData.eventType} on {formData.date}
@@ -220,40 +272,48 @@ export default function BookingPage() {
                   : "None"}
               </p>
                <p className="text-sm text-motorcycle-white/70 pt-4">A team member will be in touch shortly to finalize the details.</p>
-            </div>
+            </motion.div>
           )}
+          </AnimatePresence>
 
           {/* Navigation Buttons */}
           <div className="flex justify-between pt-6">
             {step > 0 ? (
-              <Button
-                type="button"
-                onClick={back}
-                variant="outline"
-              >
-                Back
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button
+                  type="button"
+                  onClick={back}
+                  variant="outline"
+                  className="border-2 border-motorcycle-yellow text-motorcycle-white bg-motorcycle-card hover:bg-motorcycle-yellow hover:text-black transition-all duration-300 font-semibold shadow-lg"
+                >
+                  ← Back
+                </Button>
+              </motion.div>
             ) : <div></div>}
             {step < steps.length - 1 ? (
-              <Button
-                type="button"
-                onClick={next}
-                className="ml-auto"
-              >
-                Next
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button
+                  type="button"
+                  onClick={next}
+                  className="ml-auto btn-primary transition-all duration-300 shadow-lg hover:shadow-2xl font-semibold"
+                >
+                  Next →
+                </Button>
+              </motion.div>
             ) : (
-              <Button
-                type="submit"
-                className="ml-auto bg-green-600 hover:bg-green-700 text-white"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Submitting..." : "Submit Booking"}
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button
+                  type="submit"
+                  className="ml-auto bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white transition-all duration-300 shadow-lg hover:shadow-2xl font-semibold"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "✓ Submit Booking"}
+                </Button>
+              </motion.div>
             )}
           </div>
         </form>
-      </div>
+      </motion.div>
     </div>
     </>
   );

@@ -31,7 +31,8 @@ export default function LoginPage() {
       const success = await login(email, password);
       if (success) {
         console.log("Authentication successful, redirecting...");
-        router.push('/admin');
+        // Use window.location for hard redirect to ensure layout re-renders
+        window.location.href = '/admin';
       } else {
         console.log("Authentication failed");
         setError("Invalid email or password. Please try again.");
@@ -46,66 +47,23 @@ export default function LoginPage() {
 
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '20px',
-      fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
-    }}>
+    <div className="min-h-screen bg-motorcycle-dark flex items-center justify-center p-5 relative overflow-hidden">
       {/* Background Pattern */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundImage: 'radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)',
-        pointerEvents: 'none'
-      }} />
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 opacity-50"></div>
+      <div className="absolute inset-0 opacity-10">
+        <div className="w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(255,211,45,0.15)_1px,transparent_0)] bg-[length:40px_40px]"></div>
+      </div>
 
-      <div style={{
-        backgroundColor: 'rgba(255, 255, 255, 0.95)',
-        backdropFilter: 'blur(10px)',
-        padding: '24px',
-        borderRadius: '12px',
-        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
-        maxWidth: '420px',
-        width: '100%',
-        position: 'relative',
-        border: '1px solid rgba(255, 255, 255, 0.2)'
-      }}>
+      <div className="bg-motorcycle-card backdrop-blur-lg p-8 rounded-3xl shadow-professional-lg max-w-md w-full relative z-10 border-2 border-motorcycle-yellow card-professional">
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-          <div style={{
-            width: '48px',
-            height: '48px',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            borderRadius: '12px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: '0 auto 12px',
-            boxShadow: '0 8px 16px rgba(102, 126, 234, 0.3)'
-          }}>
-            <span style={{ color: 'white', fontSize: '20px', fontWeight: 'bold' }}>A</span>
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 bg-gradient-to-br from-motorcycle-yellow to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg card-professional">
+            <span className="text-black text-2xl font-bold">A</span>
           </div>
-          <h1 style={{ 
-            fontSize: '24px', 
-            fontWeight: '700', 
-            color: '#1a202c', 
-            marginBottom: '6px',
-            letterSpacing: '-0.5px'
-          }}>
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent mb-2">
             Admin Login
           </h1>
-          <p style={{ 
-            color: '#718096', 
-            fontSize: '14px',
-            margin: 0
-          }}>
+          <p className="text-motorcycle-white/80 text-sm">
             Sign in to access the admin dashboard
           </p>
         </div>
@@ -113,84 +71,37 @@ export default function LoginPage() {
 
         {/* Login Form */}
         <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: '16px' }}>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '6px', 
-              color: '#2d3748', 
-              fontWeight: '600',
-              fontSize: '13px'
-            }}>
+          <div className="mb-5">
+            <label className="block mb-2 text-motorcycle-white font-semibold text-sm">
               Email Address
             </label>
-            <div style={{ position: 'relative' }}>
-              <input 
-                type="email" 
-                placeholder="admin@spevents.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px 14px',
-                  border: '2px solid #e2e8f0',
-                  borderRadius: '6px',
-                  fontSize: '14px',
-                  boxSizing: 'border-box',
-                  transition: 'border-color 0.2s',
-                  outline: 'none'
-                }}
-                onFocus={(e) => e.target.style.borderColor = '#667eea'}
-                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
-                required
-              />
-            </div>
+            <input 
+              type="email" 
+              placeholder="admin@spevents.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-3 border-2 border-motorcycle-yellow rounded-xl text-motorcycle-white bg-motorcycle-dark focus:ring-2 focus:ring-motorcycle-yellow focus:border-motorcycle-yellow transition-all duration-300 placeholder:text-motorcycle-white/50"
+              required
+            />
           </div>
           
-          <div style={{ marginBottom: '20px' }}>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '6px', 
-              color: '#2d3748', 
-              fontWeight: '600',
-              fontSize: '13px'
-            }}>
+          <div className="mb-6">
+            <label className="block mb-2 text-motorcycle-white font-semibold text-sm">
               Password
             </label>
-            <div style={{ position: 'relative' }}>
+            <div className="relative">
               <input 
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px 14px',
-                  paddingRight: '40px',
-                  border: '2px solid #e2e8f0',
-                  borderRadius: '6px',
-                  fontSize: '14px',
-                  boxSizing: 'border-box',
-                  transition: 'border-color 0.2s',
-                  outline: 'none'
-                }}
-                onFocus={(e) => e.target.style.borderColor = '#667eea'}
-                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
+                className="w-full p-3 pr-12 border-2 border-motorcycle-yellow rounded-xl text-motorcycle-white bg-motorcycle-dark focus:ring-2 focus:ring-motorcycle-yellow focus:border-motorcycle-yellow transition-all duration-300 placeholder:text-motorcycle-white/50"
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                style={{
-                  position: 'absolute',
-                  right: '10px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  color: '#718096',
-                  fontSize: '16px'
-                }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-motorcycle-white/70 hover:text-motorcycle-yellow transition-colors duration-300 text-lg"
               >
                 {showPassword ? '🙈' : '👁️'}
               </button>
@@ -199,14 +110,8 @@ export default function LoginPage() {
 
           {/* Error Message */}
           {error && (
-            <div style={{
-              backgroundColor: '#fed7d7',
-              border: '1px solid #feb2b2',
-              borderRadius: '8px',
-              padding: '12px 16px',
-              marginBottom: '20px'
-            }}>
-              <p style={{ color: '#c53030', margin: 0, fontSize: '14px', fontWeight: '500' }}>
+            <div className="bg-red-500/20 border-2 border-red-500 rounded-xl p-4 mb-5 backdrop-blur-sm">
+              <p className="text-red-400 text-sm font-semibold m-0">
                 {error}
               </p>
             </div>
@@ -216,61 +121,27 @@ export default function LoginPage() {
           <button 
             type="submit"
             disabled={isLoading}
-            style={{
-              width: '100%',
-              background: isLoading ? '#a0aec0' : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              color: 'white',
-              padding: '16px',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '16px',
-              fontWeight: '600',
-              cursor: isLoading ? 'not-allowed' : 'pointer',
-              transition: 'all 0.2s',
-              boxShadow: isLoading ? 'none' : '0 4px 12px rgba(102, 126, 234, 0.4)',
-              marginBottom: '16px'
-            }}
-            onMouseEnter={(e) => {
-              if (!isLoading) {
-                e.currentTarget.style.transform = 'translateY(-1px)';
-                e.currentTarget.style.boxShadow = '0 6px 16px rgba(102, 126, 234, 0.5)';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (!isLoading) {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 12px rgba(102, 126, 234, 0.4)';
-              }
-            }}
+            className={`w-full p-4 rounded-xl text-base font-bold transition-all duration-300 mb-5 ${
+              isLoading 
+                ? 'bg-gray-500 cursor-not-allowed' 
+                : 'btn-primary hover:scale-105 shadow-lg hover:shadow-2xl'
+            }`}
           >
             {isLoading ? (
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                <div style={{
-                  width: '16px',
-                  height: '16px',
-                  border: '2px solid rgba(255,255,255,0.3)',
-                  borderTop: '2px solid white',
-                  borderRadius: '50%',
-                  animation: 'spin 1s linear infinite'
-                }} />
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                 Signing in...
               </div>
             ) : (
-              'Sign In to Admin Panel'
+              '🔐 Sign In to Admin Panel'
             )}
           </button>
         </form>
 
 
         {/* Footer */}
-        <div style={{ 
-          textAlign: 'center', 
-          fontSize: '14px', 
-          color: '#718096',
-          borderTop: '1px solid #e2e8f0',
-          paddingTop: '20px'
-        }}>
-          <p style={{ margin: 0 }}>
+        <div className="text-center text-sm text-motorcycle-white/60 border-t border-motorcycle-yellow/30 pt-5">
+          <p className="m-0">
             © 2024 SP Events. All rights reserved.
           </p>
         </div>
